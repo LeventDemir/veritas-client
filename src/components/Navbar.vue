@@ -23,7 +23,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.php"></a>
-        <a href="index.php" class="pink-logo">
+
+        <a href @click="$router.push({ name: 'home' })" class="pink-logo">
           <img src="../assets/img/diamondelectric_color.png" alt />
         </a>
       </div>
@@ -31,21 +32,21 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <router-link :to="{ name: 'home' }" tag="li">
-            <a href>Anasayfa</a>
-          </router-link>
-          <router-link :to="{ name: 'about' }" tag="li">
-            <a href>Hakkımızda</a>
-          </router-link>
-          <router-link :to="{ name: 'products' }" tag="li">
-            <a href>Ürünlerimiz</a>
-          </router-link>
-          <router-link :to="{ name: 'contact' }" tag="li">
-            <a href>İletişim</a>
-          </router-link>
-          <router-link :to="{ name: 'login' }" tag="li" class="active">
-            <a href>Bayi Girişi</a>
-          </router-link>
+          <li>
+            <a href @click="$router.push({ name: 'home' })">Anasayfa</a>
+          </li>
+          <li>
+            <a href @click="$router.push({ name: 'about' })">Hakkımızda</a>
+          </li>
+          <li>
+            <a href @click="$router.push({ name: 'products' })">Ürünlerimiz</a>
+          </li>
+          <li>
+            <a href @click="$router.push({ name: 'contact' })">İletişim</a>
+          </li>
+          <li class="active">
+            <a href @click="$router.push({ name: 'login' })">Bayi Girişi</a>
+          </li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->

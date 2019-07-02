@@ -37,19 +37,16 @@
             <div class="space-10"></div>
             <ul class="list-unstyled">
               <li>
-                <a href="index.php?goto=main">Anasayfa</a>
+                <a href @click="$router.push({ name: 'home' })">Anasayfa</a>
               </li>
               <li>
-                <a href="index.php?goto=about&cat_idx=3">Hakkımızda</a>
+                <a href @click="$router.push({ name: 'about' })">Hakkımızda</a>
               </li>
               <li>
-                <a href="index.php?goto=products&cat_idx=4">Ürünlerimiz</a>
+                <a href @click="$router.push({ name: 'products' })">Ürünlerimiz</a>
               </li>
               <li>
-                <a href="index.php?goto=contact">İletişim</a>
-              </li>
-              <li class="active">
-                <a href="index.php?goto=login">Bayi Girişi</a>
+                <a href @click="$router.push({ name: 'contact' })">İletişim</a>
               </li>
             </ul>
           </div>
@@ -92,8 +89,6 @@
             </div>
           </div>
           <div class="space-100"></div>
-          <font color="#FFFFFF">Web Tasarım ve Uygulama</font>
-          <a href="http://www.destech.com.tr" target="_blank">destech.com.tr</a>
         </div>
       </div>
     </div>
