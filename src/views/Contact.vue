@@ -1166,9 +1166,9 @@
     </div>
     <div class="container-fluid">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.3270845306492!2d30.718658815835706!3d36.88252277993183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c39aadd25b484d%3A0xe94231a15842a7fe!2zRMSxYW1vbmQgRWxlY3RyxLFj!5e0!3m2!1str!2str!4v1519311274146"
         width="100%"
         height="450"
+        src="https://maps.google.com/maps?q=bodrum%20podyum%20%C3%A7ar%C5%9F%C4%B1s%C4%B1&t=&z=13&ie=UTF8&iwloc=&output=embed"
         frameborder="0"
         style="border:0"
         allowfullscreen
