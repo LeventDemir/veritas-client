@@ -16,7 +16,10 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 export default {
-  components: { Navbar, Footer }
+  components: { Navbar, Footer },
+  created() {
+    this.$store.dispatch("isAuth");
+  }
 };
 </script>
 

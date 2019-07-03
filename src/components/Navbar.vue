@@ -44,8 +44,11 @@
           <li>
             <a href @click="$router.push({ name: 'contact' })">İletişim</a>
           </li>
-          <li class="active">
+          <li v-if="$store.getters.getAuth === false" class="active">
             <a href @click="$router.push({ name: 'login' })">Bayi Girişi</a>
+          </li>
+          <li v-if="$store.getters.getAuth === true">
+            <a href @click="$router.push({ name: 'dashboard' })">Yönetim Paneli</a>
           </li>
         </ul>
       </div>

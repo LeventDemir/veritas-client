@@ -7,6 +7,7 @@ import About from '../views/About'
 import Products from '../views/Products'
 import Contact from '../views/Contact'
 import Login from '../views/Login'
+import Dashboard from '../views/Dashboard'
 
 Vue.use(VueRouter);
 
@@ -37,6 +38,11 @@ const routes = [
         path: "/login",
         component: Login,
         name: "login",
+    },
+    {
+        path: "/dashboard",
+        component: Dashboard,
+        name: "dashboard",
     },
 ];
 
