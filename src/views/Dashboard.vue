@@ -11,7 +11,14 @@
           style="float: right; margin-left: 10px"
         >{{ admin ? 'Ürünler' : 'Yöneticiler' }}</button>
 
-        <button v-if="admin" class="btn btn-danger" style="float: right">Yönetici Ekle</button>
+        <button
+          v-if="admin"
+          data-toggle="modal"
+          data-target="#userModal"
+          @click="setModalData('create', 'https://musichubs.herokuapp.com/public/base?image=avatar', '', '')"
+          class="btn btn-danger"
+          style="float: right"
+        >Yönetici Ekle</button>
         <hr />
         <br />
         <h3 style="text-align: center">{{ admin ? 'Yöneticiler' : 'Ürünler'}}</h3>
@@ -19,19 +26,24 @@
 
         <ul class="list-group" v-if="admin">
           <li v-for="user in users" :key="user.uuid" class="list-group-item">
-            <a
-              href
-              @click="$router.push({ name: 'profile', params: { id: user.uuid } })"
-            >{{ user.username }}</a>
+            <a href="#!">
+              <strong>{{ user.username }}</strong>
+            </a>
 
             <span style="float: right; margin-left: 30px">
               <i
                 data-toggle="modal"
                 data-target="#userModal"
-                @click="setModalData(user.photo, user.username, user.token)"
+                @click="setModalData('edit', user.photo, user.username, user.token)"
                 class="fa fa-pencil-alt text-success"
               ></i>
-              <i class="fa fa-trash text-danger" style="margin-left: 20px"></i>
+              <i
+                data-toggle="modal"
+                data-target="#userModal"
+                @click="setModalData('delete', user.photo, user.username, user.token)"
+                class="fa fa-trash text-danger"
+                style="margin-left: 20px"
+              ></i>
             </span>
 
             <span
@@ -43,6 +55,9 @@
         </ul>
       </div>
     </div>
+
+    <!-- Photo ref -->
+    <input type="file" ref="photo" accept="image/*" @change="uploadPhoto" style="display: none" />
 
     <!-- Modal -->
     <div
@@ -56,28 +71,68 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Kullanıcı Güncelleme</h5>
+            <h5
+              class="modal-title"
+              id="exampleModalLongTitle"
+            >{{ modalData.type === 'edit' ? 'Yönetici Güncelleme' : modalData.type === 'edit' ? 'Yönetici Silme' : 'Yönetici Ekleme'}}</h5>
           </div>
           <div class="modal-body">
-            <input
-              type="file"
-              ref="photo"
-              accept="image/*"
-              @change="uploadPhoto"
-              style="display: none"
-            />
+            <div v-if="modalData.type === 'edit'">
+              <center>
+                <img
+                  :src="modalData.photo"
+                  @click="$refs.photo.click()"
+                  alt="Avatar"
+                  class="avatar-big"
+                />
+                <br />
+                <br />
+                <input type="text" v-model="modalData.username" class="form-control" />
+                <br />
+                <strong
+                  v-if="error"
+                  class="text-danger"
+                >{{ error === 'length' ? 'Yönetici adı 3, 20 karakter arası olmalıdır!' : 'Bu Yönetici adı zaten var!'}}</strong>
+              </center>
+            </div>
 
-            <center>
-              <img :src="modalData.photo" @click="$refs.photo.click()" alt="Avatar" class="avatar" />
+            <div v-else-if="modalData.type === 'delete'">
+              <center>
+                <img :src="modalData.photo" alt="Avatar" class="avatar-big" />
+                <br />
+                <br />
+                <input type="text" v-model="modalData.username" disabled class="form-control" />
+                <br />
+                <strong class="text-danger">Bu yöneticiyi silmek istediğinizden emin misiniz?</strong>
+              </center>
+            </div>
+
+            <div v-else>
+              <center>
+                <img
+                  :src="modalData.photo"
+                  @click="$refs.photo.click()"
+                  alt="Avatar"
+                  class="avatar-big"
+                />
+              </center>
               <br />
+              <p>
+                <label for="username">Username</label>
+                <input type="text" id="username" v-model="modalData.username" class="form-control" />
+              </p>
+              <p>
+                <label for="password">Password</label>
+                <input type="text" id="password" v-model="modalData.password" class="form-control" />
+              </p>
               <br />
-              <input type="text" v-model="modalData.username" class="form-control" />
-              <br />
-              <strong
-                v-if="error"
-                class="text-danger"
-              >{{ error === 'length' ? 'Kullanıcı adı 3, 20 karakter arası olmalıdır!' : 'Bu kullanıcı adı zaten var!'}}</strong>
-            </center>
+              <!-- <center>
+                <strong
+                  v-if="error"
+                  class="text-danger"
+                >{{ error === 'length' ? 'Yönetici adı 3, 20 karakter arası olmalıdır!' : 'Bu Yönetici adı zaten var!'}}</strong>
+              </center> -->
+            </div>
           </div>
           <div class="modal-footer">
             <button
@@ -87,7 +142,21 @@
               class="btn btn-secondary"
               data-dismiss="modal"
             >Close</button>
-            <button type="button" @click="update" class="btn btn-danger">Değişiklikleri kaydet</button>
+
+            <button
+              v-if="modalData.type === 'edit'"
+              type="button"
+              @click="updateUser"
+              class="btn btn-danger"
+            >Değişiklikleri kaydet</button>
+
+            <button
+              v-else-if="modalData.type === 'delete'"
+              type="button"
+              class="btn btn-danger"
+            >Yöneticiyi sil</button>
+
+            <button v-else type="button" @click="createUser" class="btn btn-danger">Yönetici ekle</button>
           </div>
         </div>
       </div>
@@ -102,9 +171,11 @@ export default {
     return {
       admin: true,
       modalData: {
+        type: "",
         photo: "",
         username: "",
-        token: ""
+        token: "",
+        password: ""
       },
       error: false,
       users: [],
@@ -120,7 +191,8 @@ export default {
         .dispatch("getUsers")
         .then(response => (this.users = response.data));
     },
-    setModalData(photo, username, token) {
+    setModalData(type, photo, username, token) {
+      this.modalData.type = type;
       this.modalData.photo = photo;
       this.modalData.username = username;
       this.modalData.token = token;
@@ -138,7 +210,15 @@ export default {
 
       this.modalData.photo = "";
     },
-    update() {
+    createUser() {
+      if (
+        this.modalData.username.length > 2 &&
+        this.modalData.username.length < 21
+      ) {
+        console.info(this.modalData);
+      } else this.error = "length";
+    },
+    updateUser() {
       if (
         this.modalData.username.length > 2 &&
         this.modalData.username.length < 21
@@ -163,7 +243,15 @@ export default {
   width: 35px;
   height: 35px;
   border-radius: 18px;
-  margin-right: 5px;
+  margin-right: 7px;
+}
+
+.avatar-big {
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-right: 7px;
 }
 
 .chip {
