@@ -118,20 +118,28 @@
               </center>
               <br />
               <p>
-                <label for="username">Username</label>
+                <label for="username">Yönetici adı</label>
                 <input type="text" id="username" v-model="modalData.username" class="form-control" />
               </p>
               <p>
-                <label for="password">Password</label>
-                <input type="text" id="password" v-model="modalData.password" class="form-control" />
+                <label for="password">Şifre</label>
+                <input
+                  type="password"
+                  id="password"
+                  v-model="modalData.password"
+                  class="form-control"
+                />
               </p>
               <br />
-              <!-- <center>
-                <strong
-                  v-if="error"
-                  class="text-danger"
-                >{{ error === 'length' ? 'Yönetici adı 3, 20 karakter arası olmalıdır!' : 'Bu Yönetici adı zaten var!'}}</strong>
-              </center> -->
+              <center>
+                <strong v-if="error" class="text-danger">
+                  {{
+                  error === 'username' ? 'Yönetici adı 3, 20 karakter arası olmalıdır!' :
+                  error === 'password' ? 'Şifre adı 8, 16 karakter arası olmalıdır!' :
+                  'Bu Yönetici adı zaten var!'
+                  }}
+                </strong>
+              </center>
             </div>
           </div>
           <div class="modal-footer">
@@ -141,7 +149,7 @@
               @click="error = false"
               class="btn btn-secondary"
               data-dismiss="modal"
-            >Close</button>
+            >Kapat</button>
 
             <button
               v-if="modalData.type === 'edit'"
@@ -215,8 +223,20 @@ export default {
         this.modalData.username.length > 2 &&
         this.modalData.username.length < 21
       ) {
-        console.info(this.modalData);
-      } else this.error = "length";
+        if (
+          this.modalData.password.length > 7 &&
+          this.modalData.username.length < 17
+        ) {
+          this.$store.dispatch("createUser", this.modalData).then(response => {
+            if (response.data.el) this.error = "taken";
+            else {
+              this.error = false;
+              this.getUsers();
+              this.$refs.close.click();
+            }
+          });
+        } else this.error = "password";
+      } else this.error = "username";
     },
     updateUser() {
       if (
@@ -225,9 +245,6 @@ export default {
       ) {
         this.$store.dispatch("updateUser", this.modalData).then(response => {
           if (response === true) {
-            this.error = false;
-            this.getUsers();
-            this.$refs.close.click();
           } else this.error = true;
         });
       } else this.error = "length";

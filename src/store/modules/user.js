@@ -59,6 +59,9 @@ const actions = {
             }
 
         })
+    },
+    createUser({ }, data) {
+        return axios.post(`${base_url}createUser`, { data })
     }
 }
 
