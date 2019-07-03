@@ -6,7 +6,13 @@
 
     <router-view></router-view>
 
-    <Footer v-if="$route.name !== 'dashboard'" />
+    <Footer
+      v-if="
+      $route.name === 'home' || 
+      $route.name === 'about' || 
+      $route.name === 'products' || 
+      $route.name === 'contact'"
+    />
   </div>
 </template>
 
@@ -23,3 +29,8 @@ export default {
 };
 </script>
 
+<style>
+i:hover {
+  cursor: pointer;
+}
+</style>

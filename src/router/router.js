@@ -8,6 +8,7 @@ import Products from '../views/Products'
 import Contact from '../views/Contact'
 import Login from '../views/Login'
 import Dashboard from '../views/Dashboard'
+import Profile from '../views/Profile'
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,11 @@ const routes = [
         path: "/dashboard",
         component: Dashboard,
         name: "dashboard",
+    },
+    {
+        path: "/profile/:id",
+        component: Profile,
+        name: "profile",
     },
 ];
 

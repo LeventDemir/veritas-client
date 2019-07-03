@@ -45,6 +45,20 @@ const actions = {
     },
     getUsers({ getters }) {
         return axios.post(`${base_url}getUsers`, { token: getters.getToken })
+    },
+    updateUser({ getters, commit }, data) {
+        return axios.post(`${base_url}updateUserData`, { data }).then(response => {
+            if (response.data.msg) {
+                if (data.token === getters.getToken) {
+                    data.uuid = getters.getUser.uuid
+                    commit("setUser", data)
+                }
+                return true
+            } else {
+                return response.data
+            }
+
+        })
     }
 }
 
