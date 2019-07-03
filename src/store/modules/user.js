@@ -47,9 +47,11 @@ const actions = {
         return axios.post(`${base_url}getUsers`, { token: getters.getToken })
     },
     updateUser({ getters, commit }, data) {
+        data.token = getters.getToken
+
         return axios.post(`${base_url}updateUserData`, { data }).then(response => {
             if (response.data.msg) {
-                if (data.token === getters.getToken) {
+                if (data.user === getters.getUser.uuid) {
                     data.uuid = getters.getUser.uuid
                     commit("setUser", data)
                 }
@@ -60,7 +62,9 @@ const actions = {
 
         })
     },
-    createUser({ }, data) {
+    createUser({ getters }, data) {
+        data.token = getters.getToken
+
         return axios.post(`${base_url}createUser`, { data })
     },
     removeUser({ getters }, user) {

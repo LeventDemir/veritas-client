@@ -34,7 +34,7 @@
               <i
                 data-toggle="modal"
                 data-target="#userModal"
-                @click="setModalData('edit', user.photo, user.username, user.token)"
+                @click="setModalData('edit', user.photo, user.username, user.uuid)"
                 class="fa fa-pencil-alt text-success"
               ></i>
               <i
@@ -247,6 +247,7 @@ export default {
         this.modalData.username.length > 2 &&
         this.modalData.username.length < 21
       ) {
+        this.modalData.user = this.modalData.token;
         this.$store.dispatch("updateUser", this.modalData).then(response => {
           if (response === true) {
             this.error = false;
