@@ -50,6 +50,9 @@
           <li v-if="$store.getters.getAuth === true">
             <a href @click="$router.push({ name: 'dashboard' })">Yönetim Paneli</a>
           </li>
+          <li v-if="$store.getters.getAuth === true">
+            <a href>Çıkış</a>
+          </li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->

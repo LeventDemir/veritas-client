@@ -21,6 +21,11 @@ const getters = {
 const mutations = {
     setToken(state, token) {
         state.token = token
+    },
+    setUser(state, data) {
+        state.uuid = data.uuid
+        state.photo = data.photo
+        state.username = data.username
     }
 }
 
@@ -28,6 +33,9 @@ const actions = {
     login({ }, data) {
         return axios.post(`${base_url}login`, { data })
     },
+    getUser({ getters, commit }) {
+        axios.post(`${base_url}getUser`, { token: getters.getToken }).then(resonse => commit("setUser", resonse.data))
+    }
 }
 
 
