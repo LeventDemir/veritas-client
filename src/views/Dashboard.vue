@@ -71,10 +71,13 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5
-              class="modal-title"
-              id="exampleModalLongTitle"
-            >{{ modalData.type === 'edit' ? 'Yönetici Güncelleme' : modalData.type === 'edit' ? 'Yönetici Silme' : 'Yönetici Ekleme'}}</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">
+              {{
+              modalData.type === 'edit' ? 'Yönetici Güncelleme' :
+              modalData.type === 'delete' ? 'Yönetici Silme' :
+              'Yönetici Ekleme'
+              }}
+            </h5>
           </div>
           <div class="modal-body">
             <div v-if="modalData.type === 'edit'">
@@ -161,6 +164,7 @@
             <button
               v-else-if="modalData.type === 'delete'"
               type="button"
+              @click="removeUser"
               class="btn btn-danger"
             >Yöneticiyi sil</button>
 
@@ -245,9 +249,23 @@ export default {
       ) {
         this.$store.dispatch("updateUser", this.modalData).then(response => {
           if (response === true) {
+            this.error = false;
+            this.getUsers();
+            this.$refs.close.click();
           } else this.error = true;
         });
       } else this.error = "length";
+    },
+    removeUser() {
+      this.$store
+        .dispatch("removeUser", this.modalData.token)
+        .then(response => {
+          if (response.data.msg) {
+            this.error = false;
+            this.getUsers();
+            this.$refs.close.click();
+          }
+        });
     }
   }
 };

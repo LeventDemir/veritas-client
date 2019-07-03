@@ -62,6 +62,9 @@ const actions = {
     },
     createUser({ }, data) {
         return axios.post(`${base_url}createUser`, { data })
+    },
+    removeUser({ getters }, user) {
+        return axios.post(`${base_url}removeUser`, { data: { user, token: getters.getToken } })
     }
 }
 
