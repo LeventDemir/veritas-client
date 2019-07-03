@@ -53,8 +53,9 @@ export default {
         this.$store.dispatch("login", this.user).then(response => {
           if (response.data.el === false) this.error = true;
           else {
+            this.$store.commit("setAuth", true);
             this.$store.commit("setToken", response.data.token);
-            localStorage.setItem("token", response.data.token)
+            localStorage.setItem("token", response.data.token);
             this.$router.push({ name: "dashboard" });
           }
         });
