@@ -42,6 +42,9 @@ const actions = {
     },
     getUser({ getters, commit }) {
         axios.post(`${base_url}getUser`, { token: getters.getToken }).then(resonse => commit("setUser", resonse.data))
+    },
+    getUsers({ getters }) {
+        return axios.post(`${base_url}getUsers`, { token: getters.getToken })
     }
 }
 

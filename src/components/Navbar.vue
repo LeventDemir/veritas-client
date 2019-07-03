@@ -50,7 +50,7 @@
           <li v-if="$store.getters.getAuth === true">
             <a href @click="$router.push({ name: 'dashboard' })">Yönetim Paneli</a>
           </li>
-          <li v-if="$store.getters.getAuth === true">
+          <li v-if="$store.getters.getAuth === true" class="active">
             <a href @click="logout">Çıkış</a>
           </li>
         </ul>

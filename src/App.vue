@@ -6,7 +6,7 @@
 
     <router-view></router-view>
 
-    <Footer />
+    <Footer v-if="$route.name !== 'dashboard'" />
   </div>
 </template>
 
