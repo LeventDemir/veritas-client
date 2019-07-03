@@ -51,7 +51,7 @@
             <a href @click="$router.push({ name: 'dashboard' })">Yönetim Paneli</a>
           </li>
           <li v-if="$store.getters.getAuth === true">
-            <a href>Çıkış</a>
+            <a href @click="logout">Çıkış</a>
           </li>
         </ul>
       </div>
@@ -59,3 +59,15 @@
     </div>
   </nav>
 </template>
+
+
+<script>
+export default {
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push({ name: "home" });
+    }
+  }
+};
+</script>

@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 const base_url = 'http://127.0.0.1:3000/user/'
 
 const state = {
@@ -32,6 +33,12 @@ const mutations = {
 const actions = {
     login({ }, data) {
         return axios.post(`${base_url}login`, { data })
+    },
+    logout({ getters, commit }) {
+        axios.post(`${base_url}logout`, { token: getters.getToken }).then(response => {
+            localStorage.removeItem("token")
+            commit("setAuth", false)
+        })
     },
     getUser({ getters, commit }) {
         axios.post(`${base_url}getUser`, { token: getters.getToken }).then(resonse => commit("setUser", resonse.data))
