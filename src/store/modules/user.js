@@ -8,22 +8,15 @@ const state = {
     uuid: "",
     photo: "",
     username: "",
-    token: localStorage.getItem("token") || ""
 }
 
 const getters = {
     getUser(state) {
         return state
-    },
-    getToken(state) {
-        return state.token
     }
 }
 
 const mutations = {
-    setToken(state, token) {
-        state.token = token
-    },
     setUser(state, data) {
         state.uuid = data.uuid
         state.photo = data.photo

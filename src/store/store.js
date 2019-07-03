@@ -13,7 +13,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         auth: null,
-        base_url: 'http://127.0.0.1:3000/'
+        base_url: 'http://127.0.0.1:3000/',
+        token: localStorage.getItem("token") || ""
     },
     getters,
     mutations,
