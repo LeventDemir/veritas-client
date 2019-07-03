@@ -35,21 +35,27 @@
           <li>
             <a href @click="$router.push({ name: 'home' })">Anasayfa</a>
           </li>
-          <li>
-            <a href @click="$router.push({ name: 'about' })">Hakkımızda</a>
-          </li>
-          <li>
-            <a href @click="$router.push({ name: 'products' })">Ürünlerimiz</a>
-          </li>
-          <li>
-            <a href @click="$router.push({ name: 'contact' })">İletişim</a>
-          </li>
-          <li v-if="$store.getters.getAuth === false" class="active">
-            <a href @click="$router.push({ name: 'login' })">Bayi Girişi</a>
-          </li>
-          <li v-if="$store.getters.getAuth === true">
-            <a href @click="$router.push({ name: 'dashboard' })">Yönetim Paneli</a>
-          </li>
+          <router-link :to="{ name: 'about' }" tag="li">
+            <a href>Hakkımızda</a>
+          </router-link>
+          <router-link :to="{ name: 'products' }" tag="li">
+            <a href>Ürünlerimiz</a>
+          </router-link>
+          <router-link :to="{ name: 'contact' }" tag="li">
+            <a href>İletişim</a>
+          </router-link>
+          <router-link
+            v-if="$store.getters.getAuth === false"
+            :to="{ name: 'login' }"
+            tag="li"
+            class="active"
+          >
+            <a href>Bayi Girişi</a>
+          </router-link>
+
+          <router-link v-if="$store.getters.getAuth === true" :to="{ name: 'dashboard' }" tag="li">
+            <a href>Yönetim Paneli</a>
+          </router-link>
           <li v-if="$store.getters.getAuth === true" class="active">
             <a href @click="logout">Çıkış</a>
           </li>

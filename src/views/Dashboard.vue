@@ -93,10 +93,13 @@
                 <br />
                 <input type="text" v-model="modalData.username" class="form-control" />
                 <br />
-                <strong
-                  v-if="error"
-                  class="text-danger"
-                >{{ error === 'length' ? 'Yönetici adı 3, 20 karakter arası olmalıdır!' : 'Bu Yönetici adı zaten var!'}}</strong>
+                <strong v-if="error" class="text-danger">
+                  {{
+                  error === 'length' ? 'Yönetici adı 3, 20 karakter arası olmalıdır!' :
+                  error === 'photo' ? 'Seçtiğiniz dosya çok büyük başaka bir fataoğraf seçiniz' :
+                  'Bu Yönetici adı zaten var!'
+                  }}
+                </strong>
               </center>
             </div>
 
@@ -142,6 +145,7 @@
                   {{
                   error === 'username' ? 'Yönetici adı 3, 20 karakter arası olmalıdır!' :
                   error === 'password' ? 'Şifre adı 8, 16 karakter arası olmalıdır!' :
+                  error === 'photo' ? 'Seçtiğiniz dosya çok büyük başaka bir fataoğraf seçiniz' :
                   'Bu Yönetici adı zaten var!'
                   }}
                 </strong>
@@ -219,12 +223,15 @@ export default {
       if (!files.length) return;
 
       const reader = new FileReader();
-      const vm = this;
 
-      reader.onload = e => (vm.modalData.photo = e.target.result);
-      reader.readAsDataURL(files[0]);
+      if (files[0].size / (1024 * 1024) < 2) {
+        const vm = this;
 
-      this.modalData.photo = "";
+        reader.onload = e => (vm.modalData.photo = e.target.result);
+        reader.readAsDataURL(files[0]);
+
+        this.modalData.photo = "";
+      } else this.error = "photo";
     },
     createUser() {
       if (

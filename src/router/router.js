@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import store from '../store/store'
 
 import Home from '../views/Home'
 import About from '../views/About'
@@ -44,6 +45,13 @@ const routes = [
         path: "/dashboard",
         component: Dashboard,
         name: "dashboard",
+        beforeEnter(to, from, next) {
+            store.dispatch("isAuth").then(response => {
+                store.commit("setAuth", response);
+                if (response) next();
+                else next({ name: 'login' })
+            });
+        }
     },
 ];
 

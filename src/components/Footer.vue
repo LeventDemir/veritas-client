@@ -39,15 +39,15 @@
               <li>
                 <a href @click="$router.push({ name: 'home' })">Anasayfa</a>
               </li>
-              <li>
-                <a href @click="$router.push({ name: 'about' })">Hakkımızda</a>
-              </li>
-              <li>
-                <a href @click="$router.push({ name: 'products' })">Ürünlerimiz</a>
-              </li>
-              <li>
-                <a href @click="$router.push({ name: 'contact' })">İletişim</a>
-              </li>
+              <router-link :to="{ name: 'about' }" tag="li">
+                <a href>Hakkımızda</a>
+              </router-link>
+              <router-link :to="{ name: 'products' }" tag="li">
+                <a href>Ürünlerimiz</a>
+              </router-link>
+              <router-link :to="{ name: 'contact' }" tag="li">
+                <a href>İletişim</a>
+              </router-link>
             </ul>
           </div>
           <div class="space-30"></div>
