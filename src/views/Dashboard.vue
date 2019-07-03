@@ -79,6 +79,7 @@
               }}
             </h5>
           </div>
+
           <div class="modal-body">
             <div v-if="modalData.type === 'edit'">
               <center>
@@ -106,7 +107,9 @@
                 <br />
                 <input type="text" v-model="modalData.username" disabled class="form-control" />
                 <br />
-                <strong class="text-danger">Bu yöneticiyi silmek istediğinizden emin misiniz?</strong>
+                <strong
+                  class="text-danger"
+                >{{ users.length === 1 ? 'Bu yönetici silinemez!' : 'Bu yöneticiyi silmek istediğinizden emin misiniz?'}}</strong>
               </center>
             </div>
 
@@ -145,6 +148,7 @@
               </center>
             </div>
           </div>
+
           <div class="modal-footer">
             <button
               type="button"
@@ -262,6 +266,20 @@ export default {
         .dispatch("removeUser", this.modalData.token)
         .then(response => {
           if (response.data.msg) {
+            if (this.modalData.token === this.$store.getters.getToken) {
+              this.$store.commit("setAuth", false);
+              this.$store.commit("setToken", "");
+
+              localStorage.removeItem("token");
+
+              this.$store.commit("setUser", {
+                uuid: "",
+                photo: "",
+                username: ""
+              });
+              this.$router.push({ name: "home" });
+            }
+
             this.error = false;
             this.getUsers();
             this.$refs.close.click();
