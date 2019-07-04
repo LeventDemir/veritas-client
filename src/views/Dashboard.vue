@@ -91,8 +91,20 @@
                 />
                 <br />
                 <br />
-                <input type="text" v-model="modalData.username" class="form-control" />
-                <br />
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                    <input
+                      type="text"
+                      id="username"
+                      v-model="modalData.username"
+                      placeholder="Yönetici adı"
+                      class="form-control noneradius"
+                    />
+                  </div>
+                </div>
                 <strong v-if="error" class="text-danger">
                   {{
                   error === 'length' ? 'Yönetici adı 3, 20 karakter arası olmalıdır!' :
@@ -108,7 +120,21 @@
                 <img :src="modalData.photo" alt="Avatar" class="avatar-big" />
                 <br />
                 <br />
-                <input type="text" v-model="modalData.username" disabled class="form-control" />
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                    <input
+                      type="text"
+                      id="username"
+                      v-model="modalData.username"
+                      placeholder="Yönetici adı"
+                      class="form-control noneradius"
+                      disabled
+                    />
+                  </div>
+                </div>
                 <br />
                 <strong
                   class="text-danger"
@@ -126,20 +152,39 @@
                 />
               </center>
               <br />
-              <p>
-                <label for="username">Yönetici adı</label>
-                <input type="text" id="username" v-model="modalData.username" class="form-control" />
-              </p>
-              <p>
-                <label for="password">Şifre</label>
-                <input
-                  type="password"
-                  id="password"
-                  v-model="modalData.password"
-                  class="form-control"
-                />
-              </p>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                  </span>
+                  <input
+                    type="text"
+                    id="username"
+                    v-model="modalData.username"
+                    placeholder="Yönetici adı"
+                    class="form-control noneradius"
+                  />
+                </div>
+              </div>
+
+              <div class="from-group">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                  </span>
+                  <input
+                    type="password"
+                    id="password"
+                    v-model="modalData.password"
+                    placeholder="Şifre"
+                    class="form-control noneradius"
+                  />
+                </div>
+              </div>
+
               <br />
+
               <center>
                 <strong v-if="error" class="text-danger">
                   {{
