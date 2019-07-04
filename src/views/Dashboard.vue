@@ -19,6 +19,15 @@
           class="btn btn-danger"
           style="float: right"
         >Yönetici Ekle</button>
+
+        <router-link
+          v-else
+          :to="{ name: 'createProduct' }"
+          tag="button"
+          class="btn btn-danger"
+          style="float: right"
+        >Ürün Ekle</router-link>
+
         <hr />
         <br />
         <h3 style="text-align: center">{{ admin ? 'Yöneticiler' : 'Ürünler'}}</h3>

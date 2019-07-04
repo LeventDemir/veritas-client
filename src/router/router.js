@@ -9,6 +9,7 @@ import Products from '../views/Products'
 import Contact from '../views/Contact'
 import Login from '../views/Login'
 import Dashboard from '../views/Dashboard'
+import CreateProduct from '../views/CreateProduct'
 
 
 Vue.use(VueRouter);
@@ -45,6 +46,18 @@ const routes = [
         path: "/dashboard",
         component: Dashboard,
         name: "dashboard",
+        beforeEnter(to, from, next) {
+            store.dispatch("isAuth").then(response => {
+                store.commit("setAuth", response);
+                if (response) next();
+                else next({ name: 'login' })
+            });
+        }
+    },
+    {
+        path: "/createProduct",
+        component: CreateProduct,
+        name: "createProduct",
         beforeEnter(to, from, next) {
             store.dispatch("isAuth").then(response => {
                 store.commit("setAuth", response);
