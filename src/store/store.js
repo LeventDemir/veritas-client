@@ -6,6 +6,7 @@ import * as mutations from './main/mutations'
 import * as actions from './main/actions'
 
 import user from "./modules/user";
+import product from "./modules/product";
 
 Vue.use(Vuex);
 
@@ -21,5 +22,6 @@ export default new Vuex.Store({
     actions,
     modules: {
         user,
+        product
     }
 });

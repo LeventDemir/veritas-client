@@ -103,7 +103,9 @@ export default {
         this.product.description &&
         this.product.photo
       ) {
-        console.log(this.product);
+        this.$store
+          .dispatch("createProduct", this.product)
+          .then(response => this.$router.push({ name: "dashboard" }));
       }
     }
   }
