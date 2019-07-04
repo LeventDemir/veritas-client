@@ -6,8 +6,6 @@
   >
     <div class="single-price">
       <div class="space-30"></div>
-      <!-- <a href="index.php?goto=productdetail&amp;item_idx=51">
-      </a>-->
       <router-link :to="{ name: 'product', params: { id: data.uuid } }">
         <center>
           <img :src="data.photo" class="img-responsive img-thmubnail" />
@@ -19,6 +17,11 @@
         tag="a"
         class="bttntext price-tag none"
       >{{ data.name }}</router-link>
+      <div class="space-30"></div>
+      <p>
+        <i class="fa fa-pencil-alt text-success" style="margin-right: 40px"></i>
+        <i data-toggle="modal" data-target="#userModal" class="fa fa-trash text-danger"></i>
+      </p>
     </div>
     <div class="space-30"></div>
   </div>

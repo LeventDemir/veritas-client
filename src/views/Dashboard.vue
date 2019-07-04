@@ -63,7 +63,61 @@
           </li>
         </ul>
         <div v-else>
-          <Card v-for="product in products" :key="product.uuid" :data="product" />
+          <h4
+            v-if="products.length ===  0"
+            class="alert alert-danger text-center"
+          >Hiç ürün bulunmamaktadır!</h4>
+          <div v-else>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h2>Duvar Tipi Klima</h2>
+              <Card
+                v-if="product.categorie === 'Duvar Tipi Klima'"
+                v-for="product in products"
+                :key="product.uuid"
+                :data="product"
+              />
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h2>Salon Tipi Klima</h2>
+              <Card
+                v-if="product.categorie === 'Salon Tipi Klima'"
+                v-for="product in products"
+                :key="product.uuid"
+                :data="product"
+              />
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h2>Kaset Tipi Klima</h2>
+              <Card
+                v-if="product.categorie === 'Kaset Tipi Klima'"
+                v-for="product in products"
+                :key="product.uuid"
+                :data="product"
+              />
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h2>Kanllı Tip Klima</h2>
+              <Card
+                v-if="product.categorie === 'Kanllı Tip Klima'"
+                v-for="product in products"
+                :key="product.uuid"
+                :data="product"
+              />
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h2>Multi Tipi Klima</h2>
+              <Card
+                v-if="product.categorie === 'Multi Tipi Klima'"
+                v-for="product in products"
+                :key="product.uuid"
+                :data="product"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

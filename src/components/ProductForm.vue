@@ -11,7 +11,7 @@
       <option value="Salon Tipi Klima">Salon Tipi Klima</option>
       <option value="Kaset Tipi Klima">Kaset Tipi Klima</option>
       <option value="Kanllı Tip Klima">Kanllı Tip Klima</option>
-      <option value="Multi Tip Klima">Multi Tip Klima</option>
+      <option value="Multi Tipi Klima">Multi Tip Klima</option>
     </select>
 
     <br />
