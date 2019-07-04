@@ -40,7 +40,7 @@
               <i
                 data-toggle="modal"
                 data-target="#userModal"
-                @click="setModalData('delete', user.photo, user.username, user.token)"
+                @click="setModalData('delete', user.photo, user.username, user.uuid)"
                 class="fa fa-trash text-danger"
                 style="margin-left: 20px"
               ></i>
@@ -211,11 +211,11 @@ export default {
         .dispatch("getUsers")
         .then(response => (this.users = response.data));
     },
-    setModalData(type, photo, username, token) {
+    setModalData(type, photo, username, uuid) {
       this.modalData.type = type;
       this.modalData.photo = photo;
       this.modalData.username = username;
-      this.modalData.token = token;
+      this.modalData.uuid = uuid;
     },
     uploadPhoto(e) {
       const files = e.target.files || e.dataTransfer.files;
@@ -258,7 +258,7 @@ export default {
         this.modalData.username.length > 2 &&
         this.modalData.username.length < 21
       ) {
-        this.modalData.user = this.modalData.token;
+        this.modalData.user = this.modalData.uuid;
         this.$store.dispatch("updateUser", this.modalData).then(response => {
           if (response === true) {
             this.error = false;
@@ -269,29 +269,27 @@ export default {
       } else this.error = "length";
     },
     removeUser() {
-      this.$store
-        .dispatch("removeUser", this.modalData.token)
-        .then(response => {
-          if (response.data.msg) {
-            if (this.modalData.token === this.$store.getters.getToken) {
-              this.$store.commit("setAuth", false);
-              this.$store.commit("setToken", "");
+      this.$store.dispatch("removeUser", this.modalData.uuid).then(response => {
+        if (response.data.msg) {
+          if (this.modalData.uuid === this.$store.getters.getUser.uuid) {
+            this.$store.commit("setAuth", false);
+            this.$store.commit("setToken", "");
 
-              localStorage.removeItem("token");
+            localStorage.removeItem("token");
 
-              this.$store.commit("setUser", {
-                uuid: "",
-                photo: "",
-                username: ""
-              });
-              this.$router.push({ name: "home" });
-            }
-
-            this.error = false;
-            this.getUsers();
-            this.$refs.close.click();
+            this.$store.commit("setUser", {
+              uuid: "",
+              photo: "",
+              username: ""
+            });
+            this.$router.push({ name: "home" });
           }
-        });
+
+          this.error = false;
+          this.getUsers();
+          this.$refs.close.click();
+        }
+      });
     }
   }
 };
