@@ -11,6 +11,21 @@
     </select>
 
     <br />
+
+    <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
   </div>
 </template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      editor: ClassicEditor,
+      editorData: "<p>Content of the editor.</p>",
+      editorConfig: {}
+    };
+  }
+};
+</script>
 
