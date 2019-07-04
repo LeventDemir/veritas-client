@@ -26,7 +26,12 @@
           style="margin-right: 40px"
         />
 
-        <i data-toggle="modal" data-target="#userModal" class="fa fa-trash text-danger"></i>
+        <i
+          data-toggle="modal"
+          data-target="#userModal"
+          @click="$store.commit('setProduct', data.uuid)"
+          class="fa fa-trash text-danger"
+        ></i>
       </p>
     </div>
     <div class="space-30"></div>

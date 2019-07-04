@@ -5,6 +5,7 @@
         <hr />
         <img :src="$store.getters.getUser.photo" alt="Avatar" class="avatar" />
         <strong>{{ $store.getters.getUser.username }}</strong>
+
         <button
           @click="admin = !admin"
           class="btn btn-danger"
@@ -62,6 +63,7 @@
             >ben</span>
           </li>
         </ul>
+
         <div v-else>
           <h4
             v-if="products.length ===  0"
@@ -139,6 +141,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">
               {{
+              !admin ? 'Ürün Silme' :
               modalData.type === 'edit' ? 'Yönetici Güncelleme' :
               modalData.type === 'delete' ? 'Yönetici Silme' :
               'Yönetici Ekleme'
@@ -147,7 +150,11 @@
           </div>
 
           <div class="modal-body">
-            <div v-if="modalData.type === 'edit'">
+            <center v-if="!admin">
+              <strong class="text-danger">Bu ürünü silmek istediğinizden emin misiniz?</strong>
+            </center>
+
+            <div v-else-if="modalData.type === 'edit'">
               <center>
                 <img
                   :src="modalData.photo"
@@ -274,7 +281,14 @@
             >Kapat</button>
 
             <button
-              v-if="modalData.type === 'edit'"
+              v-if="!admin"
+              type="button"
+              @click="removeProduct"
+              class="btn btn-danger"
+            >Ürünü sil</button>
+
+            <button
+              v-else-if="modalData.type === 'edit'"
               type="button"
               @click="updateUser"
               class="btn btn-danger"
@@ -410,6 +424,12 @@ export default {
       this.$store
         .dispatch("getProducts")
         .then(response => (this.products = response.data));
+    },
+    removeProduct() {
+      this.$store.dispatch("removeProduct").then(response => {
+        this.getProducts();
+        this.$refs.close.click();
+      });
     }
   }
 };
