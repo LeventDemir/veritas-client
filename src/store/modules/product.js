@@ -24,6 +24,9 @@ const actions = {
     },
     getProducts() {
         return axios.get(`${base_url}getProducts`)
+    },
+    getProduct({ }, product) {
+        return axios.get(`${base_url}getProduct`, { params: { product } })
     }
 }
 

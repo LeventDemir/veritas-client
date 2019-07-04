@@ -96,6 +96,18 @@ export default {
       editorConfig: {}
     };
   },
+  created() {
+    if (this.$route.params.page !== "create") {
+      this.$store
+        .dispatch("getProduct", this.$route.params.page)
+        .then(response => {
+          this.product.name = response.data.name;
+          this.product.photo = response.data.photo;
+          this.product.categorie = response.data.categorie;
+          this.product.description = response.data.description;
+        });
+    }
+  },
   methods: {
     uploadPhoto(e) {
       const files = e.target.files || e.dataTransfer.files;
