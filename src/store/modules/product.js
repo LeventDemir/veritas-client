@@ -21,6 +21,9 @@ const actions = {
         data.token = getters.getToken
 
         return axios.post(`${base_url}createProduct`, { data })
+    },
+    getProducts() {
+        return axios.get(`${base_url}getProducts`)
     }
 }
 

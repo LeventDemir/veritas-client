@@ -10,6 +10,7 @@ import Contact from '../views/Contact'
 import Login from '../views/Login'
 import Dashboard from '../views/Dashboard'
 import CreateProduct from '../views/CreateProduct'
+import Product from '../views/Product'
 
 
 Vue.use(VueRouter);
@@ -65,6 +66,11 @@ const routes = [
                 else next({ name: 'login' })
             });
         }
+    },
+    {
+        path: "/product/:id",
+        component: Product,
+        name: "product",
     },
 ];
 

@@ -62,6 +62,9 @@
             >ben</span>
           </li>
         </ul>
+        <div v-else>
+          <Card v-for="product in products" :key="product.uuid" :data="product" />
+        </div>
       </div>
     </div>
 
@@ -240,10 +243,13 @@
 
 
 <script>
+import Card from "../components/Card";
+
 export default {
+  components: { Card },
   data() {
     return {
-      admin: true,
+      admin: false,
       modalData: {
         type: "",
         photo: "",
@@ -258,6 +264,7 @@ export default {
   },
   created() {
     this.getUsers();
+    this.getProducts();
   },
   methods: {
     getUsers() {
@@ -344,6 +351,11 @@ export default {
           this.$refs.close.click();
         }
       });
+    },
+    getProducts() {
+      this.$store
+        .dispatch("getProducts")
+        .then(response => (this.products = response.data));
     }
   }
 };
