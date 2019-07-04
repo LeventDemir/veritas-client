@@ -9,7 +9,7 @@ import Products from '../views/Products'
 import Contact from '../views/Contact'
 import Login from '../views/Login'
 import Dashboard from '../views/Dashboard'
-import CreateProduct from '../views/CreateProduct'
+import ProductOperations from '../views/ProductOperations'
 import Product from '../views/Product'
 
 
@@ -56,9 +56,9 @@ const routes = [
         }
     },
     {
-        path: "/createProduct",
-        component: CreateProduct,
-        name: "createProduct",
+        path: "/productOperations/:page",
+        component: ProductOperations,
+        name: "productOperations",
         beforeEnter(to, from, next) {
             store.dispatch("isAuth").then(response => {
                 store.commit("setAuth", response);

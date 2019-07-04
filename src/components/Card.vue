@@ -19,7 +19,13 @@
       >{{ data.name }}</router-link>
       <div class="space-30"></div>
       <p>
-        <i class="fa fa-pencil-alt text-success" style="margin-right: 40px"></i>
+        <router-link
+          :to="{ name: 'productOperations', params: { page: data.uuid } }"
+          tag="i"
+          class="fa fa-pencil-alt text-success"
+          style="margin-right: 40px"
+        />
+
         <i data-toggle="modal" data-target="#userModal" class="fa fa-trash text-danger"></i>
       </p>
     </div>

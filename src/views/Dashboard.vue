@@ -22,7 +22,7 @@
 
         <router-link
           v-else
-          :to="{ name: 'createProduct' }"
+          :to="{ name: 'productOperations', params: { page: 'create' } }"
           tag="button"
           class="btn btn-danger"
           style="float: right"
