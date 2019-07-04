@@ -34,9 +34,18 @@
             style="display: none"
           />
 
-          <div v-if="product.photo && product.categorie && product.description && product.photo">
+          <div
+            v-if="this.$route.params.page === 'create' && product.photo && product.categorie && product.description && product.photo"
+          >
             <button @click="create" class="btn btn-danger" style="width:100%">Ürün Oluştur</button>
-
+            <br />
+            <br />
+            <br />
+          </div>
+          <div
+            v-if="this.$route.params.page !== 'create' && product.photo && product.categorie && product.description && product.photo"
+          >
+            <button @click="update" class="btn btn-danger" style="width:100%">Ürünü Güncelle</button>
             <br />
             <br />
             <br />
@@ -136,6 +145,13 @@ export default {
           .dispatch("createProduct", this.product)
           .then(response => this.$router.push({ name: "dashboard" }));
       }
+    },
+    update() {
+      this.product.product = this.$route.params.page;
+
+      this.$store
+        .dispatch("updateProduct", this.product)
+        .then(response => this.$router.push({ name: "dashboard" }));
     }
   }
 };
