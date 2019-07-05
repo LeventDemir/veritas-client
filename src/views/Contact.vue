@@ -122,9 +122,9 @@ export default {
   },
   methods: {
     sendMail() {
-      this.$store.dispatch("sendMail", this.mail).then(response => {
-        console.info(response.data);
-      });
+      this.$store
+        .dispatch("sendMail", this.mail)
+        .then(() => this.$router.push({ name: "home" }));
     }
   }
 };
