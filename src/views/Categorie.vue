@@ -2,27 +2,8 @@
   <section class="relative" id="spesification">
     <div class="space-30"></div>
     <div class="container">
-      <div class="row text-white">
-        <MiniCard
-          :data="{ name: 'Duvar Tipi Klima', photo: '/src/assets/img/duvartipi.png', color: 'blue', categorie: 'duvar' }"
-        />
+      <MiniCards />
 
-        <MiniCard
-          :data="{ name: 'Salon Tipi Klima', photo: '/src/assets/img/salontipi.png', color: 'pink', categorie: 'salon' }"
-        />
-
-        <MiniCard
-          :data="{ name: 'Kaset Tipi Klima', photo: '/src/assets/img/kasettipi.png', color: 'green', categorie: 'kaset' }"
-        />
-
-        <MiniCard
-          :data="{ name: 'Kanallı Tip Klima', photo: '/src/assets/img/kanaltipi.png', color: 'gold', categorie: 'kanal' }"
-        />
-
-        <MiniCard
-          :data="{ name: 'Multi Tipi Klima', photo: '/src/assets/img/multi.png', color: 'purple', categorie: 'multi' }"
-        />
-      </div>
       <div class="clearfix"></div>
       <hr />
 
@@ -37,11 +18,11 @@
 
 
 <script>
-import MiniCard from "../components/MiniCard";
+import MiniCards from "../components/MiniCards";
 import Card from "../components/Card";
 
 export default {
-  components: { Card, MiniCard },
+  components: { Card, MiniCards },
   data() {
     return {
       products: [],
