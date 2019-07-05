@@ -18,7 +18,7 @@
         class="bttntext price-tag none"
       >{{ data.name }}</router-link>
       <div class="space-30"></div>
-      <p>
+      <p v-if="$route.name === 'dashboard'">
         <router-link
           :to="{ name: 'productOperations', params: { page: data.uuid } }"
           tag="i"
