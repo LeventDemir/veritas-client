@@ -21,6 +21,7 @@
                   id="name"
                   v-model="mail.name"
                   placeholder="İsim"
+                  required
                   class="form-control noneradius"
                 />
               </div>
@@ -36,6 +37,7 @@
                   id="phone"
                   v-model="mail.phone"
                   placeholder="Telefon"
+                  required
                   class="form-control noneradius"
                 />
               </div>
@@ -51,6 +53,7 @@
                   id="email"
                   v-model="mail.email"
                   placeholder="Email"
+                  required
                   class="form-control noneradius"
                 />
               </div>
@@ -59,7 +62,7 @@
             <div class="form-group">
               <label>Konu</label>
               <br />
-              <select id="subject" v-model="mail.subject" class="form-control">
+              <select id="subject" v-model="mail.subject" required class="form-control">
                 <option value disabled>Şeçiniz</option>
                 <option value="Şikayet">Şikayet</option>
                 <option value="Öneri">Öneri</option>
@@ -77,6 +80,7 @@
                   type="text"
                   id="message"
                   v-model="mail.message"
+                  required
                   placeholder="Mesajınız"
                   class="form-control noneradius"
                 ></textarea>
@@ -118,7 +122,7 @@ export default {
   },
   methods: {
     sendMail() {
-      alert();
+      alert("Bu işlem henüz  gerçekleştirilememektedir");
     }
   }
 };
