@@ -4,17 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <!-- <a data-fancybox="group"
-                        href="https://www.diamondelectric.net//upload/2018042011374564-hakkimizda.jpg"><img
-                            src="mthumb.php?src=https://www.diamondelectric.net//upload/2018042011374564-hakkimizda.jpg&w=650&h=450&q=100&zc=1"
-          class="img-responsive img-thmubnail"></a>-->
-
-          <a
-            data-fancybox="group"
-            href="https://www.diamondelectric.net//upload/2018042011374564-hakkimizda.jpg"
-          >
-            <img src="/src/assets/about/img/mthumb.jpeg" class="img-responsive img-thmubnail" />
-          </a>
+          <img src="/src/assets/img/about/mthumb.jpeg" class="img-responsive img-thmubnail" />
         </div>
         <div class="col-xs-12 col-sm-10 col-md-6">
           <div class="page-title">
