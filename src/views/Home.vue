@@ -3,10 +3,7 @@
     <div id="carousel-id" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="item">
-          <img
-            src="https://www.diamondelectric.net//upload/2018061414265518-miyazaki.jpg"
-            style="width: 100%;"
-          />
+          <img src="/src/assets/img/home/1.jpg" style="width: 100%;" />
           <div class="container">
             <div class="carousel-caption">
               <h1>GÜÇLÜ SERİNLİK</h1>
@@ -14,10 +11,7 @@
           </div>
         </div>
         <div class="item">
-          <img
-            src="https://www.diamondelectric.net//upload/2018061414273740-duvartipi.jpg"
-            style="width: 100%;"
-          />
+          <img src="/src/assets/img/home/2.jpg" style="width: 100%;" />
           <div class="container">
             <div class="carousel-caption">
               <h1>GÖRKEMLİ SERİNLİK</h1>
@@ -25,10 +19,7 @@
           </div>
         </div>
         <div class="item">
-          <img
-            src="https://www.diamondelectric.net//upload/2018061414303399-kasettipi.jpg"
-            style="width: 100%;"
-          />
+          <img src="/src/assets/img/home/3.jpg" style="width: 100%;" />
           <div class="container">
             <div class="carousel-caption">
               <h1>ORGANİZE SERİNLİK</h1>
@@ -36,6 +27,7 @@
           </div>
         </div>
       </div>
+
       <a class="left carousel-control" href="#carousel-id" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
@@ -65,7 +57,7 @@
       <div class="section-bg white">
         <div
           class="section-bg"
-          style="background-image: url(https://www.diamondelectric.net//upload/2018032213293317-bg-3.jpg); opacity: 0.9;"
+          style="background-image: url(/src/assets/img/home/4.jpg); opacity: 0.9;"
         ></div>
       </div>
       <div class="container">
@@ -104,7 +96,7 @@
       <div class="section-bg white">
         <div
           class="section-bg"
-          style="background-image: url(https://www.diamondelectric.net//upload/2018032213301741-bg-2.jpg); opacity: 0.9;"
+          style="background-image: url(/src/assets/img/home/5.jpg); opacity: 0.9;"
         ></div>
       </div>
       <div class="container">
