@@ -1,5 +1,4 @@
 <template>
-  <!--Footer-Area-->
   <footer class="relative">
     <div class="space-100"></div>
     <div class="container">
@@ -11,21 +10,36 @@
             style="filter: brightness(0) invert(1);"
           />
           <div class="space-10"></div>Diamond Electric Türkiye Distribütörü
-          <div class="space-10"></div>Kırcami Mh. Perge Bulv. Emine Melli İş Merkezi No:71/202 Muratpaşa - ANTALYA
+          <div class="space-10"></div>
+          {{ $store.getters.getSettings.address }}
           <div class="clearfix"></div>
           <hr />
-          <a style="color:#FFFFFF;" href="mailto:info@diamondelectric.net">info@diamondelectric.net</a>
-          <br />T:0.242 316 66 06
-          <br />F:0.242 316 66 08
+          <a style="color:#FFFFFF;">{{ $store.getters.getSettings.email }}</a>
+          <br />
+          {{ $store.getters.getSettings.phone }}
           <div class="space-10"></div>
           <ul class="list-inline list-unstyled social-list">
             <li>
-              <a href="#">
+              <a
+                v-if="$store.getters.getSettings.instagram"
+                :href="$store.getters.getSettings.instagram"
+              >
+                <i class="fab fa-instagram" style="background: #793939"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                v-if="$store.getters.getSettings.facebook"
+                :href="$store.getters.getSettings.facebook"
+              >
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a
+                v-if="$store.getters.getSettings.twitter"
+                :href="$store.getters.getSettings.twitter"
+              >
                 <i class="fab fa-twitter"></i>
               </a>
             </li>

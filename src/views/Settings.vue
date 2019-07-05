@@ -67,12 +67,12 @@ export default {
   data() {
     return {
       settings: {
-        email: "",
-        phone: "",
-        instagram: "",
-        twitter: "",
-        facebook: "",
-        address: ""
+        email: this.$store.getters.getSettings.email,
+        phone: this.$store.getters.getSettings.phone,
+        instagram: this.$store.getters.getSettings.instagram,
+        twitter: this.$store.getters.getSettings.twitter,
+        facebook: this.$store.getters.getSettings.facebook,
+        address: this.$store.getters.getSettings.address
       }
     };
   },

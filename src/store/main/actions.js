@@ -13,9 +13,15 @@ export const isAuth = ({ state, getters, commit, dispatch }) => {
     )
 }
 
-
-export const updateSettings = ({ state, getters }, data) => {
+export const updateSettings = ({ state, getters, dispatch }, data) => {
     data.token = getters.getToken
 
-    return axios.post(`${state.base_url}settings/update`, { data })
+    return axios.post(`${state.base_url}settings/updateSettings`, { data }).then(response => {
+        dispatch('getSettings')
+        return response
+    })
+}
+
+export const getSettings = ({ state, commit }) => {
+    axios.get(`${state.base_url}settings/getSettings`).then(response => commit('setSettings', response.data))
 }
