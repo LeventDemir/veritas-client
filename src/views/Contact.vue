@@ -122,7 +122,9 @@ export default {
   },
   methods: {
     sendMail() {
-      alert("Bu işlem henüz  gerçekleştirilememektedir");
+      this.$store.dispatch("sendMail", this.mail).then(response => {
+        console.info(response.data);
+      });
     }
   }
 };
