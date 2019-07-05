@@ -9,6 +9,7 @@ import Products from '../views/Products'
 import Contact from '../views/Contact'
 import Login from '../views/Login'
 import Dashboard from '../views/Dashboard'
+import Settings from '../views/Settings'
 import ProductOperations from '../views/ProductOperations'
 import Product from '../views/Product'
 import Categorie from '../views/Categorie'
@@ -48,6 +49,18 @@ const routes = [
         path: "/dashboard",
         component: Dashboard,
         name: "dashboard",
+        beforeEnter(to, from, next) {
+            store.dispatch("isAuth").then(response => {
+                store.commit("setAuth", response);
+                if (response) next();
+                else next({ name: 'login' })
+            });
+        }
+    },
+    {
+        path: "/settings",
+        component: Settings,
+        name: "settings",
         beforeEnter(to, from, next) {
             store.dispatch("isAuth").then(response => {
                 store.commit("setAuth", response);
