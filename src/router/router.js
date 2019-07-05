@@ -11,6 +11,7 @@ import Login from '../views/Login'
 import Dashboard from '../views/Dashboard'
 import ProductOperations from '../views/ProductOperations'
 import Product from '../views/Product'
+import Categorie from '../views/Categorie'
 
 
 Vue.use(VueRouter);
@@ -71,6 +72,11 @@ const routes = [
         path: "/product/:id",
         component: Product,
         name: "product",
+    },
+    {
+        path: "/categorie/:categorie",
+        component: Categorie,
+        name: "categorie",
     },
 ];
 
