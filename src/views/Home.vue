@@ -51,63 +51,7 @@
         <br />
         <div class="row">
           <div class="col-xs-12 col-md-12">
-            <div class="row text-white">
-              <div class="col-xs-12 text-center wow fadeInRight lgwith" data-wow-delay="0.2s">
-                <a style="color: #FFFFFF;" href="index.php?goto=products&cat_idx=30">
-                  <div class="single-price blue">
-                    <div class="price-tag">Duvar Tipi Klima</div>
-                    <div class="space-30"></div>
-                    <img src="../assets/img/duvartipi.png" alt />
-                    <div class="space-20"></div>
-                  </div>
-                  <div class="space-30"></div>
-                </a>
-              </div>
-              <div class="col-xs-12 text-center wow fadeInRight lgwith" data-wow-delay="0.2s">
-                <a style="color: #FFFFFF;" href="index.php?goto=products&cat_idx=31">
-                  <div class="single-price pink">
-                    <div class="price-tag">Salon Tipi Klima</div>
-                    <div class="space-30"></div>
-                    <img src="../assets/img/salontipi.png" alt />
-                    <div class="space-20"></div>
-                  </div>
-                  <div class="space-30"></div>
-                </a>
-              </div>
-              <div class="col-xs-12 text-center wow fadeInRight lgwith" data-wow-delay="0.2s">
-                <a style="color: #FFFFFF;" href="index.php?goto=products&cat_idx=32">
-                  <div class="single-price green">
-                    <div class="price-tag">Kaset Tipi Klima</div>
-                    <div class="space-30"></div>
-                    <img src="../assets/img/kasettipi.png" alt />
-                    <div class="space-20"></div>
-                  </div>
-                  <div class="space-30"></div>
-                </a>
-              </div>
-              <div class="col-xs-12 text-center wow fadeInRight lgwith" data-wow-delay="0.2s">
-                <a style="color: #FFFFFF;" href="index.php?goto=products&cat_idx=33">
-                  <div class="single-price gold">
-                    <div class="price-tag">Kanallı Tip Klima</div>
-                    <div class="space-30"></div>
-                    <img src="../assets/img/kanaltipi.png" alt />
-                    <div class="space-20"></div>
-                  </div>
-                  <div class="space-30"></div>
-                </a>
-              </div>
-              <div class="col-xs-12 text-center wow fadeInRight lgwith" data-wow-delay="0.2s">
-                <a style="color: #FFFFFF;" href="index.php?goto=products&cat_idx=39">
-                  <div class="single-price purple">
-                    <div class="price-tag">Multi Tipi Klima</div>
-                    <div class="space-30"></div>
-                    <img src="../assets/img/multi.png" alt />
-                    <div class="space-20"></div>
-                  </div>
-                  <div class="space-30"></div>
-                </a>
-              </div>
-            </div>
+            <MiniCards />
           </div>
         </div>
       </div>
@@ -197,3 +141,12 @@
     </section>
   </div>
 </template>
+
+
+<script>
+import MiniCards from "../components/MiniCards";
+
+export default {
+  components: { MiniCards }
+};
+</script>
