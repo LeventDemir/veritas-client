@@ -78,7 +78,9 @@ export default {
   },
   methods: {
     save() {
-      console.info(this.settings);
+      this.$store
+        .dispatch("updateSettings", this.settings)
+        .then(response => this.$router.push({ name: "dashboard" }));
     }
   }
 };

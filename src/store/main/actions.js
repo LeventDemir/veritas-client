@@ -12,3 +12,10 @@ export const isAuth = ({ state, getters, commit, dispatch }) => {
     }
     )
 }
+
+
+export const updateSettings = ({ state, getters }, data) => {
+    data.token = getters.getToken
+
+    return axios.post(`${state.base_url}settings/update`, { data })
+}
