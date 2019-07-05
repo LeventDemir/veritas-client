@@ -26,7 +26,10 @@
       <div class="clearfix"></div>
       <hr />
 
-      <Card v-for="product in products" :key="product.uuid" :data="product" />
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h2>{{ categorie }}</h2>
+        <Card v-for="product in products" :key="product.uuid" :data="product" />
+      </div>
     </div>
     <div class="space-30"></div>
   </section>
@@ -41,28 +44,43 @@ export default {
   components: { Card, MiniCard },
   data() {
     return {
-      products: []
+      products: [],
+      categorie: this.$route.params.categorie,
+      categories: ["duvar", "salon", "kaset", "kanal", "multi"]
     };
   },
   created() {
-    const categories = ["duvar", "salon", "kaset", "kanal", "multi"];
-    let categorie = this.$route.params.categorie;
-
-    if (categories.includes(categorie)) {
-      categorie === categories[0]
-        ? (categorie = "Duvar Tipi Klima")
-        : categorie === categories[1]
-        ? (categorie = "Salon Tipi Klima")
-        : categorie === categories[2]
-        ? (categorie = "Kaset Tipi Klima")
-        : categorie === categories[3]
-        ? (categorie = "Kanallı Tip Klima")
-        : categorie === categories[4]
-        ? (categorie = "Multi Tipi Klima")
-        : "";
+    if (this.categories.includes(this.categorie)) {
+      this.setCategorie();
 
       this.$store
-        .dispatch("getProductsByCategorie", categorie)
+        .dispatch("getProductsByCategorie", this.categorie)
+        .then(response => (this.products = response.data));
+    }
+  },
+  methods: {
+    setCategorie() {
+      this.categorie === this.categories[0]
+        ? (this.categorie = "Duvar Tipi Klima")
+        : this.categorie === this.categories[1]
+        ? (this.categorie = "Salon Tipi Klima")
+        : this.categorie === this.categories[2]
+        ? (this.categorie = "Kaset Tipi Klima")
+        : this.categorie === this.categories[3]
+        ? (this.categorie = "Kanallı Tip Klima")
+        : this.categorie === this.categories[4]
+        ? (this.categorie = "Multi Tipi Klima")
+        : "";
+    }
+  },
+  watch: {
+    "$route.params.categorie"() {
+      this.categorie = this.$route.params.categorie;
+
+      this.setCategorie();
+
+      this.$store
+        .dispatch("getProductsByCategorie", this.categorie)
         .then(response => (this.products = response.data));
     }
   }
