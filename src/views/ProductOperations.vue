@@ -15,7 +15,7 @@
             <option value="Duvar Tipi Klima">Duvar Tipi Klima</option>
             <option value="Salon Tipi Klima">Salon Tipi Klima</option>
             <option value="Kaset Tipi Klima">Kaset Tipi Klima</option>
-            <option value="Kanllı Tip Klima">Kanllı Tip Klima</option>
+            <option value="Kanallı Tip Klima">Kanllı Tip Klima</option>
             <option value="Multi Tipi Klima">Multi Tip Klima</option>
           </select>
 

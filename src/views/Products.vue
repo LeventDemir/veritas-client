@@ -59,9 +59,9 @@
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <h2>Kanllı Tip Klima</h2>
+          <h2>Kanallı Tip Klima</h2>
           <Card
-            v-if="product.categorie === 'Kanllı Tip Klima'"
+            v-if="product.categorie === 'Kanallı Tip Klima'"
             v-for="product in products"
             :key="product.uuid"
             :data="product"
