@@ -11,6 +11,7 @@
       $route.name === 'home' || 
       $route.name === 'about' || 
       $route.name === 'products' || 
+      $route.name === 'product' || 
       $route.name === 'contact' ||
       $route.name === 'login'"
     />
