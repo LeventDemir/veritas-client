@@ -13,7 +13,7 @@ import Settings from '../views/Settings'
 import ProductOperations from '../views/ProductOperations'
 import Product from '../views/Product'
 import Categorie from '../views/Categorie'
-import NoFound from '../views/NoFound'
+import NoFound from '../components/NoFound'
 
 
 Vue.use(VueRouter);
