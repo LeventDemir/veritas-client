@@ -34,56 +34,141 @@
             style="display: none"
           />
 
-          <div
-            v-if="this.$route.params.page === 'create' && product.photo && product.categorie && product.description && product.photo"
-          >
-            <button @click="create" class="btn btn-danger" style="width:100%">Ürün Oluştur</button>
+          <!-- categorie pdf ref -->
+          <input
+            type="file"
+            ref="categoriePdf"
+            accept="application/pdf"
+            @change="uploadCategoriePdf"
+            style="display: none"
+          />
+
+          <!-- property pdf pdf ref -->
+          <input
+            type="file"
+            ref="propertyPdf"
+            accept="application/pdf"
+            @change="uploadPropertyPdf"
+            style="display: none"
+          />
+
+          <div class="container">
+            <center>
+              <div class="row">
+                <div class="col-md-4">
+                  <button @click="$refs.photo.click()" class="btn btn-danger">Kapak Fotoğrafı</button>
+                </div>
+                <div class="col-md-4">
+                  <button @click="$refs.categoriePdf.click()" class="btn btn-danger">Kategori pdf</button>
+                </div>
+                <div class="col-md-4">
+                  <button @click="$refs.propertyPdf.click()" class="btn btn-danger">Özellikler pdf</button>
+                </div>
+              </div>
+            </center>
+          </div>
+
+          <div v-if="product.photo || product.categoriePdf || product.propertyPdf">
             <br />
             <br />
             <br />
           </div>
+
           <div
-            v-if="this.$route.params.page !== 'create' && product.photo && product.categorie && product.description && product.photo"
+            v-if="product.photo"
+            data-wow-delay="0.2s"
+            class="col-xs-12 col-sm-4 text-center wow fadeInRight"
+            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
           >
-            <button @click="update" class="btn btn-danger" style="width:100%">Ürünü Güncelle</button>
-            <br />
-            <br />
-            <br />
+            <div class="single-price">
+              <div class="space-30"></div>
+              <a href="#!">
+                <center>
+                  <img :src="product.photo" class="img-responsive img-thmubnail" />
+                </center>
+              </a>
+              <div class="space-20"></div>
+              <a
+                href="#!"
+                class="bttntext price-tag none"
+              >{{ product.name ? product.name : 'XXXXX' }}</a>
+            </div>
+            <div class="space-30"></div>
           </div>
+
+          <div
+            v-if="product.categoriePdf"
+            data-wow-delay="0.2s"
+            class="col-xs-12 col-sm-4 text-center wow fadeInRight"
+            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
+          >
+            <div class="single-price">
+              <div class="space-30"></div>
+              <a href="#!">
+                <center>
+                  <div align="center" class="media single-feature active">
+                    <a href="#!">
+                      <div class="media-left">
+                        <div class="pink-icon-hover">
+                          <span class="flaticon-heart-beat"></span>
+                        </div>
+                        <div class="media-right"></div>
+                      </div>
+                    </a>
+                  </div>
+                </center>
+              </a>
+              <div class="space-50"></div>
+              <a href="#!" class="bttntext price-tag none">Kategori pdf</a>
+            </div>
+            <div class="space-30"></div>
+          </div>
+
+          <div
+            v-if="product.propertyPdf"
+            data-wow-delay="0.2s"
+            class="col-xs-12 col-sm-4 text-center wow fadeInRight"
+            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
+          >
+            <div class="single-price">
+              <div class="space-30"></div>
+              <a href="#!">
+                <center>
+                  <div align="center" class="media single-feature active">
+                    <a href="#!">
+                      <div class="media-left">
+                        <div class="pink-icon-hover">
+                          <span class="flaticon-heart-beat"></span>
+                        </div>
+                        <div class="media-right"></div>
+                      </div>
+                    </a>
+                  </div>
+                </center>
+              </a>
+              <div class="space-50"></div>
+              <a href="#!" class="bttntext price-tag none">Özellikler pdf</a>
+            </div>
+            <div class="space-30"></div>
+          </div>
+
+          <br />
+          <br />
+          <br />
 
           <button
-            v-if="!product.photo"
-            @click="$refs.photo.click()"
+            v-if="this.$route.params.page === 'create'"
+            @click="create"
             class="btn btn-danger"
             style="width:100%"
-          >Kapak Fotoğrafı</button>
+          >Ürün Oluştur</button>
 
-          <center v-else>
-            <div
-              data-wow-delay="0.2s"
-              class="col-xs-12 col-sm-4 text-center wow fadeInRight"
-              style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
-            >
-              <div class="single-price">
-                <div class="space-30"></div>
-                <a href="#!">
-                  <center>
-                    <img
-                      :src="product.photo"
-                      @click="$refs.photo.click()"
-                      class="img-responsive img-thmubnail"
-                    />
-                  </center>
-                </a>
-                <div class="space-20"></div>
-                <a
-                  href="#!"
-                  class="bttntext price-tag none"
-                >{{ product.name ? product.name : 'XXXXX' }}</a>
-              </div>
-              <div class="space-30"></div>
-            </div>
-          </center>
+          <button
+            v-if="this.$route.params.page !== 'create'"
+            @click="update"
+            class="btn btn-danger"
+            style="width:100%"
+          >Ürünü Güncelle</button>
         </div>
       </div>
     </div>
@@ -99,7 +184,9 @@ export default {
         name: "",
         photo: "",
         categorie: "",
-        description: ""
+        description: "",
+        categoriePdf: "",
+        propertyPdf: ""
       },
       editor: ClassicEditor,
       editorConfig: {}
@@ -134,6 +221,34 @@ export default {
         this.product.photo = "";
       }
     },
+    uploadCategoriePdf(e, type) {
+      const files = e.target.files || e.dataTransfer.files;
+
+      if (!files.length) return;
+
+      const reader = new FileReader();
+
+      const vm = this;
+
+      reader.onload = e => (vm.product.categoriePdf = e.target.result);
+      reader.readAsDataURL(files[0]);
+
+      this.product.categoriePdf = "";
+    },
+    uploadPropertyPdf(e) {
+      const files = e.target.files || e.dataTransfer.files;
+
+      if (!files.length) return;
+
+      const reader = new FileReader();
+
+      const vm = this;
+
+      reader.onload = e => (vm.product.propertyPdf = e.target.result);
+      reader.readAsDataURL(files[0]);
+
+      this.product.propertyPdf = "";
+    },
     create() {
       if (
         this.product.photo &&
@@ -148,10 +263,16 @@ export default {
     },
     update() {
       this.product.product = this.$route.params.page;
-
-      this.$store
-        .dispatch("updateProduct", this.product)
-        .then(response => this.$router.push({ name: "dashboard" }));
+      if (
+        product.photo &&
+        product.categorie &&
+        product.description &&
+        product.photo
+      ) {
+        this.$store
+          .dispatch("updateProduct", this.product)
+          .then(response => this.$router.push({ name: "dashboard" }));
+      }
     }
   }
 };
