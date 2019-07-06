@@ -120,6 +120,8 @@
               </a>
               <div class="space-50"></div>
               <a href="#!" class="bttntext price-tag none">Kategori pdf</a>
+              <div class="space-50"></div>
+              <i @click="product.categoriePdf = ''" class="fa fa-trash text-danger"></i>
             </div>
             <div class="space-30"></div>
           </div>
@@ -148,6 +150,8 @@
               </a>
               <div class="space-50"></div>
               <a href="#!" class="bttntext price-tag none">Özellikler pdf</a>
+              <div class="space-50"></div>
+              <i @click="product.featuresPdf = ''" class="fa fa-trash text-danger"></i>
             </div>
             <div class="space-30"></div>
           </div>
