@@ -28,7 +28,7 @@
 
             <div class="col-xs-6 col-sm-6">
               <div align="center" class="media single-feature active">
-                <a target="_blank" href="upload/2018032813203476-diamond-miyazaki-brosur.pdf">
+                <a href="#!">
                   <div class="media-left">
                     <div class="pink-icon-hover">
                       <span class="flaticon-heart-beat"></span>
@@ -47,7 +47,7 @@
             </div>
             <div class="col-xs-6 col-sm-6">
               <div align="center" class="media single-feature active">
-                <a target="_blank" href="upload/2018041916152455-miyazaki-teknik.pdf">
+                <a href="#!">
                   <div class="media-left">
                     <div class="pink-icon-hover">
                       <span class="flaticon-heart-beat"></span>
