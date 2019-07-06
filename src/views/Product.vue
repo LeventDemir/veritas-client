@@ -13,7 +13,7 @@
               <hr />
             </div>
 
-            <ckeditor v-model="product.description" />
+            <div v-html="product.description"></div>
 
             <div class="space-40"></div>
           </div>
@@ -91,3 +91,9 @@ export default {
   }
 };
 </script>
+
+<style>
+p strong {
+  color: red !important;
+}
+</style>
