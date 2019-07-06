@@ -9,6 +9,7 @@
             type="email"
             id="email"
             v-model="settings.email"
+            required
             placeholder="Email"
             class="form-control"
           />
@@ -19,6 +20,7 @@
             id="phone"
             v-model="settings.phone"
             placeholder="Telefon"
+            required
             class="form-control"
           />
           <br />
@@ -47,6 +49,7 @@
           <textarea
             id="address"
             v-model="settings.address"
+            required
             placeholder="Adres"
             cols="30"
             rows="5"

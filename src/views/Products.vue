@@ -8,38 +8,44 @@
         <div class="clearfix"></div>
         <hr />
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <h2 v-if="categories.includes('Duvar Tipi Klima')">Duvar Tipi Klima</h2>
-          <div v-for="product in products" :key="product.uuid">
-            <Card v-if="product.categorie === 'Duvar Tipi Klima'" :data="product" />
+        <h4
+          v-if="products.length ===  0"
+          class="alert alert-danger text-center"
+        >Hiç ürün bulunmamaktadır!</h4>
+        <div v-else>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 v-if="categories.includes('Duvar Tipi Klima')">Duvar Tipi Klima</h2>
+            <div v-for="product in products" :key="product.uuid">
+              <Card v-if="product.categorie === 'Duvar Tipi Klima'" :data="product" />
+            </div>
           </div>
-        </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <h2 v-if="categories.includes('Salon Tipi Klima')">Salon Tipi Klima</h2>
-          <div v-for="product in products" :key="product.uuid">
-            <Card v-if="product.categorie === 'Salon Tipi Klima'" :data="product" />
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 v-if="categories.includes('Salon Tipi Klima')">Salon Tipi Klima</h2>
+            <div v-for="product in products" :key="product.uuid">
+              <Card v-if="product.categorie === 'Salon Tipi Klima'" :data="product" />
+            </div>
           </div>
-        </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <h2 v-if="categories.includes('Kaset Tipi Klima')">Kaset Tipi Klima</h2>
-          <div v-for="product in products" :key="product.uuid">
-            <Card v-if="product.categorie === 'Kaset Tipi Klima'" :data="product" />
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 v-if="categories.includes('Kaset Tipi Klima')">Kaset Tipi Klima</h2>
+            <div v-for="product in products" :key="product.uuid">
+              <Card v-if="product.categorie === 'Kaset Tipi Klima'" :data="product" />
+            </div>
           </div>
-        </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <h2 v-if="categories.includes('Kanallı Tip Klima')">Kanallı Tip Klima</h2>
-          <div v-for="product in products" :key="product.uuid">
-            <Card v-if="product.categorie === 'Kanallı Tip Klima'" :data="product" />
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 v-if="categories.includes('Kanallı Tip Klima')">Kanallı Tip Klima</h2>
+            <div v-for="product in products" :key="product.uuid">
+              <Card v-if="product.categorie === 'Kanallı Tip Klima'" :data="product" />
+            </div>
           </div>
-        </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <h2 v-if="categories.includes('Multi Tipi Klima')">Multi Tipi Klima</h2>
-          <div v-for="product in products" :key="product.uuid">
-            <Card v-if="product.categorie === 'Multi Tipi Klima'" :data="product" />
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 v-if="categories.includes('Multi Tipi Klima')">Multi Tipi Klima</h2>
+            <div v-for="product in products" :key="product.uuid">
+              <Card v-if="product.categorie === 'Multi Tipi Klima'" :data="product" />
+            </div>
           </div>
         </div>
       </div>

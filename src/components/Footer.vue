@@ -11,12 +11,12 @@
           />
           <div class="space-10"></div>Diamond Electric Türkiye Distribütörü
           <div class="space-10"></div>
-          {{ $store.getters.getSettings.address }}
+          {{ $store.getters.getSettings.address || "" }}
           <div class="clearfix"></div>
           <hr />
-          <a style="color:#FFFFFF;">{{ $store.getters.getSettings.email }}</a>
+          <a style="color:#FFFFFF;">{{ $store.getters.getSettings.email || "" }}</a>
           <br />
-          {{ $store.getters.getSettings.phone }}
+          {{ $store.getters.getSettings.phone || "" }}
           <div class="space-10"></div>
           <ul class="list-inline list-unstyled social-list">
             <li>

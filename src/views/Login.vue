@@ -15,15 +15,27 @@
             <h3 style="text-align: center">Kullanıcı adı yada parolanız yanlış !</h3>
           </div>
 
-          <form @submit.prevent>
+          <form @submit.prevent="login">
             <div class="form-group">
               <label for>Kullanıcı adı</label>
-              <input type="text" id="username" v-model="user.username" class="form-control" />
+              <input
+                type="text"
+                id="username"
+                v-model="user.username"
+                required
+                class="form-control"
+              />
 
               <label for>Parola</label>
-              <input type="password" id="password" v-model="user.password" class="form-control" />
+              <input
+                type="password"
+                id="password"
+                v-model="user.password"
+                required
+                class="form-control"
+              />
             </div>
-            <button type="button" @click="login" class="btn btn-danger btn-block">
+            <button class="btn btn-danger btn-block">
               Oturum
               Aç
             </button>
