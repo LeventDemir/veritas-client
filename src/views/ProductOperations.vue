@@ -21,7 +21,7 @@
 
           <br />
           <label>Açıklama</label>
-          <ckeditor :editor="editor" v-model="product.description" :config="editorConfig" />
+          <textarea class="form-control" v-model="product.description" />
 
           <br />
 
@@ -199,9 +199,7 @@ export default {
         description: "",
         categoriePdf: "",
         propertyPdf: ""
-      },
-      editor: ClassicEditor,
-      editorConfig: {}
+      }
     };
   },
   created() {
