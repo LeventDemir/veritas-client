@@ -157,14 +157,26 @@
           <br />
 
           <button
-            v-if="this.$route.params.page === 'create'"
+            v-if="
+            $route.params.page === 'create' &&
+            product.photo &&
+            product.categorie &&
+            product.description &&
+            product.photo 
+            "
             @click="create"
             class="btn btn-danger"
             style="width:100%"
           >Ürün Oluştur</button>
 
           <button
-            v-if="this.$route.params.page !== 'create'"
+            v-if="
+            $route.params.page !== 'create' &&
+            product.photo &&
+            product.categorie &&
+            product.description &&
+            product.photo
+            "
             @click="update"
             class="btn btn-danger"
             style="width:100%"
