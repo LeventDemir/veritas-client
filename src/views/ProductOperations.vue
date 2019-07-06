@@ -215,6 +215,7 @@ export default {
           this.product.categorie = response.data.categorie;
           this.product.description = response.data.description;
           this.product.categoriePdf = response.data.categoriePdf || "";
+          this.product.featuresPdf = response.data.featuresPdf || "";
         });
     }
   },
