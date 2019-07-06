@@ -13,6 +13,7 @@ import Settings from '../views/Settings'
 import ProductOperations from '../views/ProductOperations'
 import Product from '../views/Product'
 import Categorie from '../views/Categorie'
+import NoFound from '../views/NoFound'
 
 
 Vue.use(VueRouter);
@@ -90,6 +91,11 @@ const routes = [
         path: "/categorie/:categorie",
         component: Categorie,
         name: "categorie",
+    },
+    {
+        path: "*",
+        component: NoFound,
+        name: "noFound",
     },
 ];
 
