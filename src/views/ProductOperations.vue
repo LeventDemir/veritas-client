@@ -46,9 +46,9 @@
           <!-- property pdf pdf ref -->
           <input
             type="file"
-            ref="propertyPdf"
+            ref="featuresPdf"
             accept="application/pdf"
-            @change="uploadPropertyPdf"
+            @change="uploadFeaturesPdf"
             style="display: none"
           />
 
@@ -62,13 +62,13 @@
                   <button @click="$refs.categoriePdf.click()" class="btn btn-danger">Kategori pdf</button>
                 </div>
                 <div class="col-md-4">
-                  <button @click="$refs.propertyPdf.click()" class="btn btn-danger">Özellikler pdf</button>
+                  <button @click="$refs.featuresPdf.click()" class="btn btn-danger">Özellikler pdf</button>
                 </div>
               </div>
             </center>
           </div>
 
-          <div v-if="product.photo || product.categoriePdf || product.propertyPdf">
+          <div v-if="product.photo || product.categoriePdf || product.featuresPdf">
             <br />
             <br />
             <br />
@@ -125,7 +125,7 @@
           </div>
 
           <div
-            v-if="product.propertyPdf"
+            v-if="product.featuresPdf"
             data-wow-delay="0.2s"
             class="col-xs-12 col-sm-4 text-center wow fadeInRight"
             style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
@@ -201,7 +201,7 @@ export default {
         categorie: "",
         description: "",
         categoriePdf: "",
-        propertyPdf: ""
+        featuresPdf: ""
       }
     };
   },
@@ -214,6 +214,7 @@ export default {
           this.product.photo = response.data.photo;
           this.product.categorie = response.data.categorie;
           this.product.description = response.data.description;
+          this.product.categoriePdf = response.data.categoriePdf || "";
         });
     }
   },
@@ -248,7 +249,7 @@ export default {
 
       this.product.categoriePdf = "";
     },
-    uploadPropertyPdf(e) {
+    uploadFeaturesPdf(e) {
       const files = e.target.files || e.dataTransfer.files;
 
       if (!files.length) return;
@@ -257,10 +258,10 @@ export default {
 
       const vm = this;
 
-      reader.onload = e => (vm.product.propertyPdf = e.target.result);
+      reader.onload = e => (vm.product.featuresPdf = e.target.result);
       reader.readAsDataURL(files[0]);
 
-      this.product.propertyPdf = "";
+      this.product.featuresPdf = "";
     },
     create() {
       if (
