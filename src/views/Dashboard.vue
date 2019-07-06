@@ -71,53 +71,38 @@
           >Hiç ürün bulunmamaktadır!</h4>
           <div v-else>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <h2>Duvar Tipi Klima</h2>
-              <Card
-                v-if="product.categorie === 'Duvar Tipi Klima'"
-                v-for="product in products"
-                :key="product.uuid"
-                :data="product"
-              />
+              <h2 v-if="categories.includes('Duvar Tipi Klima')">Duvar Tipi Klima</h2>
+              <div v-for="product in products" :key="product.uuid">
+                <Card v-if="product.categorie === 'Duvar Tipi Klima'" :data="product" />
+              </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <h2>Salon Tipi Klima</h2>
-              <Card
-                v-if="product.categorie === 'Salon Tipi Klima'"
-                v-for="product in products"
-                :key="product.uuid"
-                :data="product"
-              />
+              <h2 v-if="categories.includes('Salon Tipi Klima')">Salon Tipi Klima</h2>
+              <div v-for="product in products" :key="product.uuid">
+                <Card v-if="product.categorie === 'Salon Tipi Klima'" :data="product" />
+              </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <h2>Kaset Tipi Klima</h2>
-              <Card
-                v-if="product.categorie === 'Kaset Tipi Klima'"
-                v-for="product in products"
-                :key="product.uuid"
-                :data="product"
-              />
+              <h2 v-if="categories.includes('Kaset Tipi Klima')">Kaset Tipi Klima</h2>
+              <div v-for="product in products" :key="product.uuid">
+                <Card v-if="product.categorie === 'Kaset Tipi Klima'" :data="product" />
+              </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <h2>Kanllı Tip Klima</h2>
-              <Card
-                v-if="product.categorie === 'Kanallı Tip Klima'"
-                v-for="product in products"
-                :key="product.uuid"
-                :data="product"
-              />
+              <h2 v-if="categories.includes('Kanallı Tip Klima')">Kanallı Tip Klima</h2>
+              <div v-for="product in products" :key="product.uuid">
+                <Card v-if="product.categorie === 'Kanallı Tip Klima'" :data="product" />
+              </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <h2>Multi Tipi Klima</h2>
-              <Card
-                v-if="product.categorie === 'Multi Tipi Klima'"
-                v-for="product in products"
-                :key="product.uuid"
-                :data="product"
-              />
+              <h2 v-if="categories.includes('Multi Tipi Klima')">Multi Tipi Klima</h2>
+              <div v-for="product in products" :key="product.uuid">
+                <Card v-if="product.categorie === 'Multi Tipi Klima'" :data="product" />
+              </div>
             </div>
           </div>
         </div>
@@ -327,7 +312,8 @@ export default {
       },
       error: false,
       users: [],
-      products: []
+      products: [],
+      categories: []
     };
   },
   created() {
@@ -421,9 +407,13 @@ export default {
       });
     },
     getProducts() {
-      this.$store
-        .dispatch("getProducts")
-        .then(response => (this.products = response.data));
+      this.$store.dispatch("getProducts").then(response => {
+        this.products = response.data;
+
+        for (let product in this.products)
+          if (!this.categories.includes(this.products[product].categorie))
+            this.categories.push(this.products[product].categorie);
+      });
     },
     removeProduct() {
       this.$store.dispatch("removeProduct").then(response => {
