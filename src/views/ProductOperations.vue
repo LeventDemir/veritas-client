@@ -11,7 +11,7 @@
 
           <label>Kategori Seçiniz</label>
           <select v-model="product.categorie" class="form-control">
-            <option value>Seçiniz</option>
+            <option value disabled>Seçiniz</option>
             <option value="Duvar Tipi Klima">Duvar Tipi Klima</option>
             <option value="Salon Tipi Klima">Salon Tipi Klima</option>
             <option value="Kaset Tipi Klima">Kaset Tipi Klima</option>
@@ -21,7 +21,7 @@
 
           <br />
           <label>Açıklama</label>
-          <textarea class="form-control" v-model="product.description" />
+          <VueEditor v-model="product.description" />
 
           <br />
 
@@ -189,7 +189,10 @@
 
 
 <script>
+import { VueEditor } from "vue2-editor";
+
 export default {
+  components: { VueEditor },
   data() {
     return {
       product: {
@@ -261,10 +264,10 @@ export default {
     },
     create() {
       if (
+        this.product.name &&
         this.product.photo &&
         this.product.categorie &&
-        this.product.description &&
-        this.product.photo
+        this.product.description
       ) {
         this.$store
           .dispatch("createProduct", this.product)
@@ -274,10 +277,10 @@ export default {
     update() {
       this.product.product = this.$route.params.page;
       if (
-        product.photo &&
-        product.categorie &&
-        product.description &&
-        product.photo
+        this.product.name &&
+        this.product.photo &&
+        this.product.categorie &&
+        this.product.description
       ) {
         this.$store
           .dispatch("updateProduct", this.product)
@@ -287,3 +290,13 @@ export default {
   }
 };
 </script>
+
+
+<style lang="css">
+@import "~vue2-editor/dist/vue2-editor.css";
+
+/* Import the Quill styles you want */
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.bubble.css";
+@import "~quill/dist/quill.snow.css";
+</style>
