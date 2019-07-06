@@ -6,7 +6,7 @@
         class="hidden-xs hidden-sm"
         style="position: absolute; right: 10px; z-index: 200; margin-top: 150px"
       >
-        <img src="../assets/img/20_yil_diamond.png" />
+        <img src="/src/assets/img/20_yil_diamond.png" />
       </div>
       <!-- 20 yıl Banner -->
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,7 +25,7 @@
         <a class="navbar-brand" href="index.php"></a>
 
         <a href @click="$router.push({ name: 'home' })" class="pink-logo">
-          <img src="../assets/img/diamondelectric_color.png" alt />
+          <img src="/src/assets/img/diamondelectric_color.png" alt />
         </a>
       </div>
 

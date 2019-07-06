@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-4" style="color: #FFFFFF;">
           <img
-            src="../assets/img/diamondelectric_white.png"
+            src="/src/assets/img/diamondelectric_white.png"
             alt
             style="filter: brightness(0) invert(1);"
           />
@@ -93,13 +93,13 @@
           <div class="single-footer">
             <div class="space-10"></div>
             <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-4 col-lg-4">
-              <img src="../assets/img/delpha.png" />
+              <img src="/src/assets/img/delpha.png" />
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-              <img src="../assets/img/visa-master-logolari.png" />
+              <img src="/src/assets/img/visa-master-logolari.png" />
             </div>
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-              <img src="../assets/img/comodo-secure-logo-new.png" />
+              <img src="/src/assets/img/comodo-secure-logo-new.png" />
             </div>
           </div>
           <div class="space-100"></div>
