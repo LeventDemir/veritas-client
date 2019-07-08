@@ -26,9 +26,9 @@
 
             <br />
 
-            <div class="col-xs-6 col-sm-6">
+            <div v-if="product.categoriePdf" class="col-xs-6 col-sm-6">
               <div align="center" class="media single-feature active">
-                <a href="#!">
+                <a target="_blank" :href="product.categoriePdf">
                   <div class="media-left">
                     <div class="pink-icon-hover">
                       <span class="flaticon-heart-beat"></span>
@@ -45,9 +45,10 @@
               <div class="space-30"></div>
               <br />
             </div>
-            <div class="col-xs-6 col-sm-6">
+
+            <div v-if="product.featuresPdf" class="col-xs-6 col-sm-6">
               <div align="center" class="media single-feature active">
-                <a href="#!">
+                <a target="_blank" :href="product.featuresPdf">
                   <div class="media-left">
                     <div class="pink-icon-hover">
                       <span class="flaticon-heart-beat"></span>

@@ -107,7 +107,10 @@
               <a href="#!">
                 <center>
                   <div align="center" class="media single-feature active">
-                    <a href="#!">
+                    <a
+                      :target="product.categoriePdf.substr(0, 4) === 'http' ? '_blank' : ''"
+                      :href="product.categoriePdf.substr(0, 4) === 'http' ? product.categoriePdf : '#!'"
+                    >
                       <div class="media-left">
                         <div class="pink-icon-hover">
                           <span class="flaticon-heart-beat"></span>
@@ -119,7 +122,11 @@
                 </center>
               </a>
               <div class="space-50"></div>
-              <a href="#!" class="bttntext price-tag none">Kategori pdf</a>
+              <a
+                :target="product.categoriePdf.substr(0, 4) === 'http' ? '_blank' : ''"
+                :href="product.categoriePdf.substr(0, 4) === 'http' ? product.categoriePdf : '#!'"
+                class="bttntext price-tag none"
+              >Kategori pdf</a>
               <div class="space-50"></div>
               <i @click="product.categoriePdf = ''" class="fa fa-trash text-danger"></i>
             </div>
@@ -137,7 +144,10 @@
               <a href="#!">
                 <center>
                   <div align="center" class="media single-feature active">
-                    <a href="#!">
+                    <a
+                      :target="product.featuresPdf.substr(0, 4) === 'http' ? '_blank' : ''"
+                      :href="product.featuresPdf.substr(0, 4) === 'http' ? product.featuresPdf : '#!'"
+                    >
                       <div class="media-left">
                         <div class="pink-icon-hover">
                           <span class="flaticon-heart-beat"></span>
@@ -149,7 +159,11 @@
                 </center>
               </a>
               <div class="space-50"></div>
-              <a href="#!" class="bttntext price-tag none">Özellikler pdf</a>
+              <a
+                :target="product.featuresPdf.substr(0, 4) === 'http' ? '_blank' : ''"
+                :href="product.featuresPdf.substr(0, 4) === 'http' ? product.featuresPdf : '#!'"
+                class="bttntext price-tag none"
+              >Özellikler pdf</a>
               <div class="space-50"></div>
               <i @click="product.featuresPdf = ''" class="fa fa-trash text-danger"></i>
             </div>
