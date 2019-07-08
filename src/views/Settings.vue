@@ -4,7 +4,6 @@
       <div class="col-xs-12 col-sm-10 col-md-12">
         <br />
         <br />
-        <br />
         <form @submit.prevent="save">
           <div class="form-group">
             <div class="input-group">
@@ -125,9 +124,11 @@ export default {
   },
   methods: {
     save() {
-      this.$store
-        .dispatch("updateSettings", this.settings)
-        .then(response => this.$router.push({ name: "dashboard" }));
+      this.$store.dispatch("updateSettings", this.settings).then(response => {
+        if (response.data.msg)
+          this.flash("Ayarlar Güncellendi", "success", { timeout: 5000 });
+        else this.flash("Ayarlar Güncellenemedi", "error", { timeout: 5000 });
+      });
     }
   }
 };
