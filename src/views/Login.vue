@@ -11,10 +11,6 @@
 
           <div class="space-40"></div>
 
-          <div v-if="error" class="alert alert-danger">
-            <h3 style="text-align: center">Kullanıcı adı yada parolanız yanlış !</h3>
-          </div>
-
           <form @submit.prevent="login">
             <div class="form-group">
               <label for>Kullanıcı adı</label>
@@ -55,24 +51,28 @@ export default {
       user: {
         username: "",
         password: ""
-      },
-      error: false
+      }
     };
   },
   methods: {
     login() {
       if (this.user.username.length > 0 && this.user.password.length) {
         this.$store.dispatch("login", this.user).then(response => {
-          if (response.data.el === false) this.error = true;
+          if (response.data.el === false)
+            this.flash("Kullanıcı adı yada parolanız yanlış !", "error");
           else {
             this.$store.commit("setAuth", true);
             this.$store.commit("setToken", response.data.token);
             localStorage.setItem("token", response.data.token);
             this.$store.dispatch("getUser");
             this.$router.push({ name: "dashboard" });
+            this.flash("Giriş Yapıldı", "success", { timeout: 5000 });
           }
         });
-      } else this.error = true;
+      } else
+        this.flash("Kullanıcı adı yada parolanız yanlış !", "error", {
+          timeout: 5000
+        });
     }
   }
 };
