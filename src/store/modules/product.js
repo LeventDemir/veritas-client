@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const base_url = 'https://bodrum-klima.herokuapp.com/product/'
+const base_url = 'http://127.0.0.1:3000/product/'
 
 
 const state = {
