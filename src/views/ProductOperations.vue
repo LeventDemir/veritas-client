@@ -275,9 +275,13 @@ export default {
         this.product.categorie &&
         this.product.description
       ) {
-        this.$store
-          .dispatch("createProduct", this.product)
-          .then(response => this.$router.push({ name: "dashboard" }));
+        this.$store.dispatch("createProduct", this.product).then(response => {
+          if (response.data.msg)
+            this.flash("Ürün Eklendi", "success", { timeout: 5000 });
+          else this.flash("Ürün Eklenemedi", "error", { timeout: 5000 });
+
+          this.$router.push({ name: "dashboard" });
+        });
       }
     },
     update() {
@@ -288,9 +292,13 @@ export default {
         this.product.categorie &&
         this.product.description
       ) {
-        this.$store
-          .dispatch("updateProduct", this.product)
-          .then(response => this.$router.push({ name: "dashboard" }));
+        this.$store.dispatch("updateProduct", this.product).then(response => {
+          if (response.data.msg)
+            this.flash("Ürün Güncellendi", "success", { timeout: 5000 });
+          else this.flash("Ürün Güncellenemedi", "error", { timeout: 5000 });
+
+          this.$router.push({ name: "dashboard" });
+        });
       }
     }
   }
