@@ -6,7 +6,7 @@
         class="hidden-xs hidden-sm"
         style="position: absolute; right: 10px; z-index: 200; margin-top: 150px"
       >
-        <img src="/src/assets/img/20_yil_diamond.png" />
+        <img v-if="$route.name === 'home'" src="/src/assets/img/20_yil_diamond.png" />
       </div>
       <!-- 20 yıl Banner -->
       <!-- Brand and toggle get grouped for better mobile display -->
