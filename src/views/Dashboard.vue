@@ -363,6 +363,7 @@ export default {
               this.error = false;
               this.getUsers();
               this.$refs.close.click();
+              this.flash("Yönetici Eklendi", "success", { timeout: 5000 });
             }
           });
         } else this.error = "password";
@@ -379,6 +380,7 @@ export default {
             this.error = false;
             this.getUsers();
             this.$refs.close.click();
+            this.flash("Yönetici Güncellendi", "success", { timeout: 5000 });
           } else this.error = true;
         });
       } else this.error = "length";
@@ -403,7 +405,8 @@ export default {
           this.error = false;
           this.getUsers();
           this.$refs.close.click();
-        }
+          this.flash("Yönetici Silindi", "success", { timeout: 5000 });
+        } else this.flash("Yönetici Silinemedi", "error", { timeout: 5000 });
       });
     },
     getProducts() {
@@ -417,8 +420,11 @@ export default {
     },
     removeProduct() {
       this.$store.dispatch("removeProduct").then(response => {
-        this.getProducts();
-        this.$refs.close.click();
+        if (response.data.msg) {
+          this.getProducts();
+          this.$refs.close.click();
+          this.flash("Ürün Silindi", "success", { timeout: 5000 });
+        } else this.flash("Ürün Silinemedi", "error", { timeout: 5000 });
       });
     }
   }
