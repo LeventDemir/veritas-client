@@ -2,9 +2,11 @@
   <div>
     <Navbar />
 
-    <div class="container"></div>
+    <div class="container">
+      <flash-message />
+    </div>
 
-    <router-view></router-view>
+    <router-view />
 
     <Footer
       v-if="
@@ -21,6 +23,8 @@
 
 
 <script>
+require("vue-flash-message/dist/vue-flash-message.min.css");
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 

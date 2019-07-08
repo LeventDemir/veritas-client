@@ -122,9 +122,11 @@ export default {
   },
   methods: {
     sendMail() {
-      this.$store
-        .dispatch("sendMail", this.mail)
-        .then(() => this.$router.push({ name: "home" }));
+      this.$store.dispatch("sendMail", this.mail).then(response => {
+        if (response.data.msg === "ok")
+          this.flash("Mesaj gönderildi", "success", { timeout: 10000 });
+        else this.flash("Mesaj gönderilemedi!", "error", { timeout: 10000 });
+      });
     }
   }
 };
