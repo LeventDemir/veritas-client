@@ -49,10 +49,6 @@
             <a href>Yönetim Paneli</a>
           </router-link>
 
-          <router-link v-if="$store.getters.getAuth === true" :to="{ name: 'settings' }" tag="li">
-            <a href>Ayarlar</a>
-          </router-link>
-
           <li v-if="$store.getters.getAuth === true" class="active">
             <a href @click="logout">Çıkış</a>
           </li>

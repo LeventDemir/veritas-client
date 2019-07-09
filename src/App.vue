@@ -33,7 +33,6 @@ export default {
   components: { Navbar, Footer },
   created() {
     this.$store.dispatch("isAuth");
-    this.$store.dispatch("getSettings");
   }
 };
 </script>

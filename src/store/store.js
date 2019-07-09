@@ -16,7 +16,6 @@ export default new Vuex.Store({
         auth: null,
         base_url: 'http://127.0.0.1:3000/',
         token: localStorage.getItem("token") || "",
-        settings: {}
     },
     getters,
     mutations,

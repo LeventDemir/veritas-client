@@ -10,36 +10,25 @@
             style="filter: brightness(0) invert(1);"
           />
           <div class="space-10"></div>Diamond Electric Türkiye Distribütörü
-          <div class="space-10"></div>
-          {{ $store.getters.getSettings.address || "" }}
+          <div class="space-10"></div>address
           <div class="clearfix"></div>
           <hr />
-          <a style="color:#FFFFFF;">{{ $store.getters.getSettings.email || "" }}</a>
-          <br />
-          {{ $store.getters.getSettings.phone || "" }}
+          <a style="color: #FFFFFF;">email</a>
+          <br />phone
           <div class="space-10"></div>
           <ul class="list-inline list-unstyled social-list">
             <li>
-              <a
-                v-if="$store.getters.getSettings.instagram"
-                :href="$store.getters.getSettings.instagram"
-              >
+              <a href>
                 <i class="fab fa-instagram" style="background: #793939"></i>
               </a>
             </li>
             <li>
-              <a
-                v-if="$store.getters.getSettings.facebook"
-                :href="$store.getters.getSettings.facebook"
-              >
+              <a href>
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li>
-              <a
-                v-if="$store.getters.getSettings.twitter"
-                :href="$store.getters.getSettings.twitter"
-              >
+              <a href>
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
