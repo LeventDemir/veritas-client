@@ -10,7 +10,7 @@
             </h2>
           </div>
           <div class="space-10"></div>
-          <form @submit.prevent="sendMail">
+          <form @submit.prevent="sendMessage">
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon">
@@ -19,7 +19,7 @@
                 <input
                   type="text"
                   id="name"
-                  v-model="mail.name"
+                  v-model="message.name"
                   placeholder="İsim"
                   required
                   class="form-control noneradius"
@@ -35,7 +35,7 @@
                 <input
                   type="number"
                   id="phone"
-                  v-model="mail.phone"
+                  v-model="message.phone"
                   placeholder="Telefon"
                   required
                   class="form-control noneradius"
@@ -51,7 +51,7 @@
                 <input
                   type="email"
                   id="email"
-                  v-model="mail.email"
+                  v-model="message.email"
                   placeholder="Email"
                   required
                   class="form-control noneradius"
@@ -62,7 +62,7 @@
             <div class="form-group">
               <label>Konu</label>
               <br />
-              <select id="subject" v-model="mail.subject" required class="form-control">
+              <select id="subject" v-model="message.subject" required class="form-control">
                 <option value disabled>Şeçiniz</option>
                 <option value="Şikayet">Şikayet</option>
                 <option value="Öneri">Öneri</option>
@@ -79,7 +79,7 @@
                 <textarea
                   type="text"
                   id="message"
-                  v-model="mail.message"
+                  v-model="message.message"
                   required
                   placeholder="Mesajınız"
                   class="form-control noneradius"
@@ -145,7 +145,7 @@ export default {
         "/src/assets/img/contact/14.jpeg"
       ],
       index: null,
-      mail: {
+      message: {
         name: "",
         phone: "",
         email: "",
@@ -155,12 +155,8 @@ export default {
     };
   },
   methods: {
-    sendMail() {
-      this.$store.dispatch("sendMail", this.mail).then(response => {
-        if (response.data.msg === "ok")
-          this.flash("Mesaj gönderildi", "success", { timeout: 10000 });
-        else this.flash("Mesaj gönderilemedi!", "error", { timeout: 10000 });
-      });
+    sendMessage() {
+      alert();
     }
   }
 };
