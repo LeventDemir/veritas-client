@@ -4,202 +4,199 @@
       <div class="col-xs-12 col-sm-10 col-md-12">
         <br />
         <br />
-        <div class="form-group">
-          <input type="text" v-model="product.name" placeholder="İsim" class="form-control" />
+        <input type="text" v-model="product.name" placeholder="İsim" class="form-control" />
 
-          <br />
+        <br />
 
-          <label>Kategori Seçiniz</label>
-          <select v-model="product.categorie" class="form-control">
-            <option value disabled>Seçiniz</option>
-            <option value="Duvar Tipi Klima">Duvar Tipi Klima</option>
-            <option value="Salon Tipi Klima">Salon Tipi Klima</option>
-            <option value="Kaset Tipi Klima">Kaset Tipi Klima</option>
-            <option value="Kanallı Tip Klima">Kanllı Tip Klima</option>
-            <option value="Multi Tipi Klima">Multi Tip Klima</option>
-          </select>
+        <input type="text" v-model="product.price" placeholder="Fiyat" class="form-control" />
 
-          <br />
-          <label>Açıklama</label>
-          <VueEditor v-model="product.description" />
+        <br />
 
-          <br />
+        <label>Kategori Seçiniz</label>
+        <select v-model="product.categorie" class="form-control">
+          <option value disabled>Seçiniz</option>
+          <option value="Duvar Tipi Klima">Duvar Tipi Klima</option>
+          <option value="Salon Tipi Klima">Salon Tipi Klima</option>
+          <option value="Kaset Tipi Klima">Kaset Tipi Klima</option>
+          <option value="Kanallı Tip Klima">Kanllı Tip Klima</option>
+          <option value="Multi Tipi Klima">Multi Tip Klima</option>
+        </select>
 
-          <!-- Photo ref -->
-          <input
-            type="file"
-            ref="photo"
-            accept="image/*"
-            @change="uploadPhoto"
-            style="display: none"
-          />
+        <br />
+        <label>Açıklama</label>
+        <VueEditor v-model="product.description" />
 
-          <!-- categorie pdf ref -->
-          <input
-            type="file"
-            ref="categoriePdf"
-            accept="application/pdf"
-            @change="uploadCategoriePdf"
-            style="display: none"
-          />
+        <br />
 
-          <!-- property pdf pdf ref -->
-          <input
-            type="file"
-            ref="featuresPdf"
-            accept="application/pdf"
-            @change="uploadFeaturesPdf"
-            style="display: none"
-          />
+        <!-- Photo ref -->
+        <input type="file" ref="photo" accept="image/*" @change="uploadPhoto" style="display: none" />
 
-          <div class="container">
-            <center>
-              <div class="row">
-                <div class="col-md-4">
-                  <button @click="$refs.photo.click()" class="btn btn-danger">Kapak Fotoğrafı</button>
-                </div>
-                <div class="col-md-4">
-                  <button @click="$refs.categoriePdf.click()" class="btn btn-danger">Kategori pdf</button>
-                </div>
-                <div class="col-md-4">
-                  <button @click="$refs.featuresPdf.click()" class="btn btn-danger">Özellikler pdf</button>
-                </div>
+        <!-- categorie pdf ref -->
+        <input
+          type="file"
+          ref="categoriePdf"
+          accept="application/pdf"
+          @change="uploadCategoriePdf"
+          style="display: none"
+        />
+
+        <!-- property pdf pdf ref -->
+        <input
+          type="file"
+          ref="featuresPdf"
+          accept="application/pdf"
+          @change="uploadFeaturesPdf"
+          style="display: none"
+        />
+
+        <div class="container">
+          <center>
+            <div class="row">
+              <div class="col-md-4">
+                <button @click="$refs.photo.click()" class="btn btn-danger">Kapak Fotoğrafı</button>
               </div>
-            </center>
-          </div>
-
-          <div v-if="product.photo || product.categoriePdf || product.featuresPdf">
-            <br />
-            <br />
-            <br />
-          </div>
-
-          <div
-            v-if="product.photo"
-            data-wow-delay="0.2s"
-            class="col-xs-12 col-sm-4 text-center wow fadeInRight"
-            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
-          >
-            <div class="single-price">
-              <div class="space-30"></div>
-              <a href="#!">
-                <center>
-                  <img :src="product.photo" class="img-responsive img-thmubnail" />
-                </center>
-              </a>
-              <div class="space-20"></div>
-              <a
-                href="#!"
-                class="bttntext price-tag none"
-              >{{ product.name ? product.name : 'XXXXX' }}</a>
+              <div class="col-md-4">
+                <button @click="$refs.categoriePdf.click()" class="btn btn-danger">Kategori pdf</button>
+              </div>
+              <div class="col-md-4">
+                <button @click="$refs.featuresPdf.click()" class="btn btn-danger">Özellikler pdf</button>
+              </div>
             </div>
-            <div class="space-30"></div>
-          </div>
+          </center>
+        </div>
 
-          <div
-            v-if="product.categoriePdf"
-            data-wow-delay="0.2s"
-            class="col-xs-12 col-sm-4 text-center wow fadeInRight"
-            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
-          >
-            <div class="single-price">
-              <div class="space-30"></div>
-              <a href="#!">
-                <center>
-                  <div align="center" class="media single-feature active">
-                    <a
-                      :target="product.categoriePdf.substr(0, 4) === 'http' ? '_blank' : ''"
-                      :href="product.categoriePdf.substr(0, 4) === 'http' ? product.categoriePdf : '#!'"
-                    >
-                      <div class="media-left">
-                        <div class="pink-icon-hover">
-                          <span class="flaticon-heart-beat"></span>
-                        </div>
-                        <div class="media-right"></div>
+        <div v-if="product.photo || product.categoriePdf || product.featuresPdf">
+          <br />
+          <br />
+          <br />
+        </div>
+
+        <div
+          v-if="product.photo"
+          data-wow-delay="0.2s"
+          class="col-xs-12 col-sm-4 text-center wow fadeInRight"
+          style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
+        >
+          <div class="single-price">
+            <div class="space-30"></div>
+            <a href="#!">
+              <center>
+                <img :src="product.photo" class="img-responsive img-thmubnail" />
+              </center>
+            </a>
+            <div class="space-20" />
+            <a href="#!" class="bttntext price-tag none">{{ product.name ? product.name : 'XXXXX' }}</a>
+            <div class="space-20" />
+            <p>
+              <b>{{ product.price }}</b>
+            </p>
+          </div>
+          <div class="space-30"></div>
+        </div>
+
+        <div
+          v-if="product.categoriePdf"
+          data-wow-delay="0.2s"
+          class="col-xs-12 col-sm-4 text-center wow fadeInRight"
+          style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
+        >
+          <div class="single-price">
+            <div class="space-30"></div>
+            <a href="#!">
+              <center>
+                <div align="center" class="media single-feature active">
+                  <a
+                    :target="product.categoriePdf.substr(0, 4) === 'http' ? '_blank' : ''"
+                    :href="product.categoriePdf.substr(0, 4) === 'http' ? product.categoriePdf : '#!'"
+                  >
+                    <div class="media-left">
+                      <div class="pink-icon-hover">
+                        <span class="flaticon-heart-beat"></span>
                       </div>
-                    </a>
-                  </div>
-                </center>
-              </a>
-              <div class="space-50"></div>
-              <a
-                :target="product.categoriePdf.substr(0, 4) === 'http' ? '_blank' : ''"
-                :href="product.categoriePdf.substr(0, 4) === 'http' ? product.categoriePdf : '#!'"
-                class="bttntext price-tag none"
-              >Kategori pdf</a>
-              <div class="space-50"></div>
-              <i @click="product.categoriePdf = ''" class="fa fa-trash text-danger"></i>
-            </div>
-            <div class="space-30"></div>
+                      <div class="media-right"></div>
+                    </div>
+                  </a>
+                </div>
+              </center>
+            </a>
+            <div class="space-50"></div>
+            <a
+              :target="product.categoriePdf.substr(0, 4) === 'http' ? '_blank' : ''"
+              :href="product.categoriePdf.substr(0, 4) === 'http' ? product.categoriePdf : '#!'"
+              class="bttntext price-tag none"
+            >Kategori pdf</a>
+            <div class="space-50"></div>
+            <i @click="product.categoriePdf = ''" class="fa fa-trash text-danger"></i>
           </div>
+          <div class="space-30"></div>
+        </div>
 
-          <div
-            v-if="product.featuresPdf"
-            data-wow-delay="0.2s"
-            class="col-xs-12 col-sm-4 text-center wow fadeInRight"
-            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
-          >
-            <div class="single-price">
-              <div class="space-30"></div>
-              <a href="#!">
-                <center>
-                  <div align="center" class="media single-feature active">
-                    <a
-                      :target="product.featuresPdf.substr(0, 4) === 'http' ? '_blank' : ''"
-                      :href="product.featuresPdf.substr(0, 4) === 'http' ? product.featuresPdf : '#!'"
-                    >
-                      <div class="media-left">
-                        <div class="pink-icon-hover">
-                          <span class="flaticon-heart-beat"></span>
-                        </div>
-                        <div class="media-right"></div>
+        <div
+          v-if="product.featuresPdf"
+          data-wow-delay="0.2s"
+          class="col-xs-12 col-sm-4 text-center wow fadeInRight"
+          style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
+        >
+          <div class="single-price">
+            <div class="space-30"></div>
+            <a href="#!">
+              <center>
+                <div align="center" class="media single-feature active">
+                  <a
+                    :target="product.featuresPdf.substr(0, 4) === 'http' ? '_blank' : ''"
+                    :href="product.featuresPdf.substr(0, 4) === 'http' ? product.featuresPdf : '#!'"
+                  >
+                    <div class="media-left">
+                      <div class="pink-icon-hover">
+                        <span class="flaticon-heart-beat"></span>
                       </div>
-                    </a>
-                  </div>
-                </center>
-              </a>
-              <div class="space-50"></div>
-              <a
-                :target="product.featuresPdf.substr(0, 4) === 'http' ? '_blank' : ''"
-                :href="product.featuresPdf.substr(0, 4) === 'http' ? product.featuresPdf : '#!'"
-                class="bttntext price-tag none"
-              >Özellikler pdf</a>
-              <div class="space-50"></div>
-              <i @click="product.featuresPdf = ''" class="fa fa-trash text-danger"></i>
-            </div>
-            <div class="space-30"></div>
+                      <div class="media-right"></div>
+                    </div>
+                  </a>
+                </div>
+              </center>
+            </a>
+            <div class="space-50"></div>
+            <a
+              :target="product.featuresPdf.substr(0, 4) === 'http' ? '_blank' : ''"
+              :href="product.featuresPdf.substr(0, 4) === 'http' ? product.featuresPdf : '#!'"
+              class="bttntext price-tag none"
+            >Özellikler pdf</a>
+            <div class="space-50"></div>
+            <i @click="product.featuresPdf = ''" class="fa fa-trash text-danger"></i>
           </div>
+          <div class="space-30"></div>
+        </div>
 
-          <br />
-          <br />
-          <br />
-
-          <button
-            v-if="
+        <button
+          v-if="
             $route.params.page === 'create' &&
             product.photo &&
+            product.price &&
             product.categorie &&
             product.description &&
             product.photo 
             "
-            @click="create"
-            class="btn btn-danger"
-            style="width:100%"
-          >Ürün Oluştur</button>
+          @click="create"
+          class="btn btn-danger"
+          style="width:100%"
+        >Ürün Oluştur</button>
 
-          <button
-            v-if="
+        <button
+          v-if="
             $route.params.page !== 'create' &&
             product.photo &&
+            product.price &&
             product.categorie &&
             product.description &&
             product.photo
             "
-            @click="update"
-            class="btn btn-danger"
-            style="width:100%"
-          >Ürünü Güncelle</button>
-        </div>
+          @click="update"
+          class="btn btn-danger"
+          style="width:100%"
+        >Ürünü Güncelle</button>
+
+        <div class="space-200" />
       </div>
     </div>
   </div>
@@ -216,6 +213,7 @@ export default {
       product: {
         name: "",
         photo: "",
+        price: "",
         categorie: "",
         description: "",
         categoriePdf: "",
@@ -230,6 +228,7 @@ export default {
         .then(response => {
           this.product.name = response.data.name;
           this.product.photo = response.data.photo;
+          this.product.price = response.data.price;
           this.product.categorie = response.data.categorie;
           this.product.description = response.data.description;
           this.product.categoriePdf = response.data.categoriePdf || "";
@@ -286,6 +285,7 @@ export default {
       if (
         this.product.name &&
         this.product.photo &&
+        this.product.price &&
         this.product.categorie &&
         this.product.description
       ) {
@@ -303,6 +303,7 @@ export default {
       if (
         this.product.name &&
         this.product.photo &&
+        this.product.price &&
         this.product.categorie &&
         this.product.description
       ) {

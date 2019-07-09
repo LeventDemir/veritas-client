@@ -9,7 +9,9 @@
             <div class="page-title">
               <h2>
                 <strong>{{ product.name }}</strong>
+                <span style="margin: 43vw; font: 20px bold">{{product.price }}</span>
               </h2>
+
               <hr />
             </div>
 
@@ -22,7 +24,6 @@
             <a class="fancybox" :href="product.photo" data-fancybox-group="gallery">
               <img :src="product.photo" class="img-responsive img-thmubnail" />
             </a>
-            <div class="clearfix"></div>
 
             <br />
 

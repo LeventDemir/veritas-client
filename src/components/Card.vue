@@ -11,13 +11,16 @@
           <img :src="data.photo" class="img-responsive img-thmubnail" />
         </center>
       </router-link>
-      <div class="space-20"></div>
       <router-link
         :to="{ name: 'product', params: { id: data.uuid } }"
         tag="a"
         class="bttntext price-tag none"
       >{{ data.name }}</router-link>
-      <div class="space-30"></div>
+      <div class="space-30" />
+      <p>
+        <b>{{ data.price }}</b>
+      </p>
+      <div class="space-10" />
       <p v-if="$route.name === 'dashboard'">
         <router-link
           :to="{ name: 'productOperations', params: { page: data.uuid } }"
