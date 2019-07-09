@@ -134,7 +134,7 @@
     <div class="container">
       <div class="space-100" />
 
-      <h1 class="text-center">Klima alırken nelere dikkate etmeliyim?</h1>
+      <h1 class="text-center">Klima alırken nelere dikkat edilmeli?</h1>
       <div class="space-20" />
 
       <hr />
@@ -149,7 +149,9 @@
             data-target="#types"
             aria-expanded="false"
             aria-controls="types"
-          >Klima Tipleri</button>
+          >
+            <h4>Klima Tipi</h4>
+          </button>
 
           <div
             id="types"
@@ -197,7 +199,9 @@
             data-target="#capacity"
             aria-expanded="false"
             aria-controls="capacity"
-          >Kapasite</button>
+          >
+            <h4>Kapasite</h4>
+          </button>
 
           <div
             id="capacity"
@@ -268,7 +272,9 @@
             data-target="#energy"
             aria-expanded="false"
             aria-controls="energy"
-          >Enerji Tasarrufu</button>
+          >
+            <h4>Enerji Tasarrufu</h4>
+          </button>
 
           <div
             id="energy"
@@ -317,7 +323,9 @@
             data-target="#hygiene-sound"
             aria-expanded="false"
             aria-controls="hygiene-sound"
-          >Hijyen ve Ses</button>
+          >
+            <h4>Hijyen ve Ses</h4>
+          </button>
 
           <div
             id="hygiene-sound"
@@ -373,7 +381,9 @@
             data-target="#comfort"
             aria-expanded="false"
             aria-controls="comfort"
-          >Konfor</button>
+          >
+            <h4>Konfor</h4>
+          </button>
 
           <div
             id="comfort"
