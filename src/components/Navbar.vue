@@ -1,14 +1,6 @@
 <template>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
-      <!-- 20 yıl Banner -->
-      <div
-        class="hidden-xs hidden-sm"
-        style="position: absolute; right: 10px; z-index: 200; margin-top: 150px"
-      >
-        <img v-if="$route.name === 'home'" src="/src/assets/img/20_yil_diamond.png" />
-      </div>
-      <!-- 20 yıl Banner -->
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button
