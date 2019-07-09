@@ -169,6 +169,7 @@ export default {
 
 <style scoped>
 .image {
+  cursor: pointer;
   float: left;
   background-size: cover;
   background-repeat: no-repeat;
