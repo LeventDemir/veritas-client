@@ -9,7 +9,7 @@
               <strong>İletişim</strong>
             </h2>
           </div>
-          <div class="space-40"></div>
+          <div class="space-10"></div>
           <form @submit.prevent="sendMail">
             <div class="form-group">
               <div class="input-group">
@@ -88,11 +88,25 @@
             </div>
             <button class="btn btn-danger noneradius" style="width:100%;">Gönder</button>
           </form>
-
-          <div class="space-40"></div>
         </div>
       </div>
+
+      <div class="space-40" />
+
+      <div class="col-col-xs-12 col-xs-offset-1">
+        <gallery :images="images" :index="index" @close="index = null"></gallery>
+        <div
+          class="image"
+          v-for="(image, imageIndex) in images"
+          :key="imageIndex"
+          @click="index = imageIndex"
+          :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '200px' }"
+        />
+      </div>
+
+      <div class="space-40" />
     </div>
+
     <div class="container-fluid">
       <iframe
         width="100%"
@@ -108,9 +122,29 @@
 
 
 <script>
+import VueGallery from "vue-gallery";
+
 export default {
+  components: { gallery: VueGallery },
   data() {
     return {
+      images: [
+        "/src/assets/img/contact/1.jpeg",
+        "/src/assets/img/contact/2.jpeg",
+        "/src/assets/img/contact/3.jpeg",
+        "/src/assets/img/contact/4.jpeg",
+        "/src/assets/img/contact/5.jpeg",
+        "/src/assets/img/contact/6.jpeg",
+        "/src/assets/img/contact/7.jpeg",
+        "/src/assets/img/contact/8.jpeg",
+        "/src/assets/img/contact/9.jpeg",
+        "/src/assets/img/contact/10.jpeg",
+        "/src/assets/img/contact/11.jpeg",
+        "/src/assets/img/contact/12.jpeg",
+        "/src/assets/img/contact/13.jpeg",
+        "/src/assets/img/contact/14.jpeg"
+      ],
+      index: null,
       mail: {
         name: "",
         phone: "",
@@ -131,3 +165,15 @@ export default {
   }
 };
 </script>
+
+
+<style scoped>
+.image {
+  float: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px solid #ebebeb;
+  margin: 5px;
+}
+</style>
