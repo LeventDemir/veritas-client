@@ -25,7 +25,7 @@
         <a class="navbar-brand" href="index.php"></a>
 
         <a href @click="$router.push({ name: 'home' })" class="pink-logo">
-          <img src="/src/assets/img/diamondelectric_color.png" alt />
+          <img src="/src/assets/img/logo.png" alt />
         </a>
       </div>
 
