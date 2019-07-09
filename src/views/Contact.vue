@@ -156,7 +156,10 @@ export default {
   },
   methods: {
     sendMessage() {
-      alert();
+      this.$store.dispatch("sendMessage", this.message).then(response => {
+        if (response.data.success) this.flash("Mesaj Gönderildi", "success");
+        else this.flash("Mesaj Gönderilemedi", "error");
+      });
     }
   }
 };

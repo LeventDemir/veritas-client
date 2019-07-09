@@ -41,4 +41,15 @@ export default {
 i:hover {
   cursor: pointer;
 }
+
+.chip {
+  color: wheat;
+  display: inline-block;
+  padding: 0 16px;
+  margin: 1.5px 0 0 0;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 25px;
+  background-color: #d9534f;
+}
 </style>

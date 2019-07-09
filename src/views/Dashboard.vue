@@ -448,13 +448,4 @@ export default {
   border-radius: 30px;
   margin-right: 7px;
 }
-
-.chip {
-  display: inline-block;
-  padding: 0 16px;
-  /* height: 25px; */
-  font-size: 14px;
-  border-radius: 25px;
-  background-color: #d9534f;
-}
 </style>

@@ -14,6 +14,7 @@ import Product from '../views/Product'
 import Categorie from '../views/Categorie'
 import NoFound from '../components/NoFound'
 import Rights from '../views/Rights'
+import Messages from '../views/Messages'
 
 
 Vue.use(VueRouter);
@@ -58,7 +59,6 @@ const routes = [
             });
         }
     },
-
     {
         path: "/productOperations/:page",
         component: ProductOperations,
@@ -90,6 +90,18 @@ const routes = [
         path: "*",
         component: NoFound,
         name: "noFound",
+    },
+    {
+        path: "/messages",
+        component: Messages,
+        name: "messages",
+        beforeEnter(to, from, next) {
+            store.dispatch("isAuth").then(response => {
+                store.commit("setAuth", response);
+                if (response) next();
+                else next({ name: 'login' })
+            });
+        }
     },
 ];
 

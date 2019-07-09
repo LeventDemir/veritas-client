@@ -7,6 +7,7 @@ import * as actions from './main/actions'
 
 import user from "./modules/user";
 import product from "./modules/product";
+import message from "./modules/message";
 
 Vue.use(Vuex);
 
@@ -22,6 +23,7 @@ export default new Vuex.Store({
     actions,
     modules: {
         user,
-        product
+        product,
+        message
     }
 });
