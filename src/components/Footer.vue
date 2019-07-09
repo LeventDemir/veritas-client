@@ -73,30 +73,21 @@
           <div class="single-footer">
             <div class="space-10"></div>
             <ul class="list-unstyled">
-              <li>
-                <a href="index.php?goto=page&item_idx=52">GİZLİLİK VE GÜVENLİK POLİTİKASI</a>
-              </li>
-              <li>
-                <a
-                  href="index.php?goto=page&item_idx=53"
-                >TÜKETİCİ HAKLARI – CAYMA – İPTAL İADE KOŞULLARI</a>
-              </li>
-              <li>
-                <a href="index.php?goto=page&item_idx=54">MESAFELİ SATIŞ SÖZLEŞMESİ</a>
-              </li>
-              <li>
-                <a href="index.php?goto=page&item_idx=55">ÖDEME ve TESLİMAT</a>
-              </li>
+              <router-link :to="{ name: 'rights' }" tag="li">
+                <a href>TÜKETİCİ HAKLARI – CAYMA – İPTAL İADE KOŞULLARI</a>
+              </router-link>
             </ul>
           </div>
           <div class="space-30"></div>
         </div>
+
         <br />
+
         <div class="hidden-xs hidden-sm col-sm-8">
           <div class="single-footer">
             <div class="space-10"></div>
             <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-4 col-lg-4">
-              <!-- <img src="/src/assets/img/logo/delpha.png" /> -->
+              <img src="/src/assets/img/logo/delpha.png" />
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
               <img src="/src/assets/img/logo/visa-master-logolari.png" />

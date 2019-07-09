@@ -14,6 +14,7 @@ import ProductOperations from '../views/ProductOperations'
 import Product from '../views/Product'
 import Categorie from '../views/Categorie'
 import NoFound from '../components/NoFound'
+import Rights from '../views/Rights'
 
 
 Vue.use(VueRouter);
@@ -91,6 +92,11 @@ const routes = [
         path: "/categorie/:categorie",
         component: Categorie,
         name: "categorie",
+    },
+    {
+        path: "/rights",
+        component: Rights,
+        name: "rights",
     },
     {
         path: "*",
