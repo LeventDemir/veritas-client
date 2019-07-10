@@ -5,16 +5,15 @@
       <div class="row">
         <div class="col-xs-12 col-sm-4" style="color: #FFFFFF;">
           <img
-            src="/src/assets/img/logo/diamondelectric_white.png"
-            alt
-            style="filter: brightness(0) invert(1);"
+            src="/src/assets/img/logo/logo.png"
+            style="filter: brightness(0) invert(1); margin-top: -50px"
           />
-          <div class="space-10"></div>Diamond Electric Türkiye Distribütörü
-          <div class="space-10"></div>address
+          <div class="space-10"></div>Veritas Muhendislik Türkiye Distribütörü
+          <div class="space-10"></div>Konacık Mh. Atatürk Blv. No: 200 Bodrum - Muğla / TURKEY
           <div class="clearfix"></div>
           <hr />
-          <a style="color: #FFFFFF;">email</a>
-          <br />phone
+          <a style="color: #FFFFFF;">ozden@veritasmuhendislik.com</a>
+          <br />+90 252 363 73 76
           <div class="space-10"></div>
           <ul class="list-inline list-unstyled social-list">
             <li>
@@ -76,13 +75,13 @@
           <div class="single-footer">
             <div class="space-10"></div>
             <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-4 col-lg-4">
-              <img src="/src/assets/img/logo/delpha.png" />
+              <img
+                src="/src/assets/img/logo/diamondelectric_white.png"
+                style="filter: brightness(0) invert(1);"
+              />
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
               <img src="/src/assets/img/logo/visa-master-logolari.png" />
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-              <img src="/src/assets/img/logo/comodo-secure-logo-new.png" />
             </div>
           </div>
           <div class="space-100"></div>

@@ -68,7 +68,6 @@
 export default {
   methods: {
     logout() {
-      console.info(1);
       this.$store.dispatch("logout");
       this.$router.push({ name: "home" });
     }
