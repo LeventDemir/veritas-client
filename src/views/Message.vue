@@ -43,7 +43,7 @@ export default {
     this.$store.dispatch("getMessage", this.$route.params.id).then(response => {
       this.message = response.data;
       if (!response.data.read)
-        this.$store.dispatch("read", this.$route.params.id);
+        this.$store.dispatch("readMessage", this.$route.params.id);
     });
   }
 };

@@ -10,7 +10,11 @@
       <div class="space-20" />
       <ul class="list-group">
         <li v-for="message in messages" :key="message.uuid" class="list-group-item">
-          <i style="float: right; margin-left: 30px" class="fa fa-trash text-danger" />
+          <i
+            @click="remove(message.uuid)"
+            style="float: right; margin-left: 30px"
+            class="fa fa-trash text-danger"
+          />
           <router-link :to="{ name: 'message', params: { id: message.uuid } }">
             <b>{{ message.name }}</b>
           </router-link>
@@ -32,10 +36,23 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch("getMessages").then(response => {
-      this.messages = response.data.messages;
-      this.noRead = response.data.noRead;
-    });
+    this.getMessages();
+  },
+  methods: {
+    remove(message) {
+      this.$store.dispatch("removeMessage", message).then(response => {
+        if (response.data.success) {
+          this.flash("Mesaj Silindi", "success", { timeout: 3000 });
+          this.getMessages();
+        } else this.flash("Mesaj Silinemedi", "error", { timeout: 3000 });
+      });
+    },
+    getMessages() {
+      this.$store.dispatch("getMessages").then(response => {
+        this.messages = response.data.messages;
+        this.noRead = response.data.noRead;
+      });
+    }
   }
 };
 </script>
