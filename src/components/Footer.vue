@@ -83,6 +83,9 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
               <img src="/src/assets/img/logo/visa-master-logolari.png" />
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              <img src="/src/assets/img/logo/mitsubishi-klima-logo.jpg" />
+            </div>
           </div>
           <div class="space-100"></div>
         </div>

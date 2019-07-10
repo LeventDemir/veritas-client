@@ -6,10 +6,9 @@
         <div class="col-xs-12">
           <div class="page-title">
             <h2>
-              <strong>Kurumsal</strong>
+              <strong>Hakkımızda</strong>
             </h2>
           </div>
-
           <p>
             1965 senesinde başlayan mühendislik tecrübemiz ile önde gelen mimarlara, gayrimenkul geliştiricilerine, üretim tesislerine ve kamu kuruluşlarına kapsamlı yapısal inşaat mühendisliği hizmetleri sağlamaktayız.
             Veritas, Latince'de "hakikat, doğruluk" anlamına gelir. Antik Roma'da doğruluk erdemine de verilen isim olan Veritas, aynı zamanda mitoloji de hakikatin vücut bulmuş halidir.
