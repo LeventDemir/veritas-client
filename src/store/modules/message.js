@@ -16,6 +16,9 @@ const actions = {
     },
     getMessages({ getters }) {
         return axios.post(`${base_url}messages`, { token: getters.getToken })
+    },
+    getMessage({ getters }, message) {
+        return axios.post(`${base_url}message`, { data: { token: getters.getToken, message } })
     }
 }
 

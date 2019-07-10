@@ -15,6 +15,7 @@ import Categorie from '../views/Categorie'
 import NoFound from '../components/NoFound'
 import Rights from '../views/Rights'
 import Messages from '../views/Messages'
+import Message from '../views/Message'
 
 
 Vue.use(VueRouter);
@@ -95,6 +96,18 @@ const routes = [
         path: "/messages",
         component: Messages,
         name: "messages",
+        beforeEnter(to, from, next) {
+            store.dispatch("isAuth").then(response => {
+                store.commit("setAuth", response);
+                if (response) next();
+                else next({ name: 'login' })
+            });
+        }
+    },
+    {
+        path: "/message/:id",
+        component: Message,
+        name: "message",
         beforeEnter(to, from, next) {
             store.dispatch("isAuth").then(response => {
                 store.commit("setAuth", response);

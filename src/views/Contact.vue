@@ -157,8 +157,9 @@ export default {
   methods: {
     sendMessage() {
       this.$store.dispatch("sendMessage", this.message).then(response => {
-        if (response.data.success) this.flash("Mesaj Gönderildi", "success");
-        else this.flash("Mesaj Gönderilemedi", "error");
+        if (response.data.success)
+          this.flash("Mesaj Gönderildi", "success", { timeout: 5000 });
+        else this.flash("Mesaj Gönderilemedi", "error", { timeout: 5000 });
       });
     }
   }
