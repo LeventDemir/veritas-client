@@ -166,24 +166,68 @@
               <p>Klima seçerken ilk adımda sizin için uygun olan klima tipine karar vermelisiniz. Klima tipleri, kullanacağınız ortama ve ihtiyaçlarınıza göre ayrılıyor. Klima çeşitleri arasından sağlıklı seçim yapmak için klimayı hangi amaçla ve nerede kullanacağınızı belirlemeniz şart.</p>
               <hr />
 
-              <p>
-                <b>Duvar Tipi Klima</b>
-              </p>
-              <p>Duvar tipi klima, split klima ya da ev tipi klima olarak bilinen bu klimalar, iç ve dış ünite olmak üzere iki farklı parçadan oluşuyor. Bu klimaların çalışma prensipleri ise aslında oldukça basit. Soğutma ve ısıtma işlemi için kuruldukları mekândaki havayı çekiyorlar ve mevsime göre soğuk ya da sıcak hava üflüyorlar. Böylece içerideki hava daima serin kalmış oluyor. Duvara monte edildikleri için evde yer kaplamıyorlar ve hem soğutma hem de ısıtma işlemini rahatlıkla yapıyorlar.</p>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img src="/src/assets/img/categorie/duvartipi.png" alt />
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-6">
+                <p>
+                  <b>Duvar Tipi Klima</b>
+                </p>
+                <p>Duvar tipi klima, split klima ya da ev tipi klima olarak bilinen bu klimalar, iç ve dış ünite olmak üzere iki farklı parçadan oluşuyor. Bu klimaların çalışma prensipleri ise aslında oldukça basit. Soğutma ve ısıtma işlemi için kuruldukları mekândaki havayı çekiyorlar ve mevsime göre soğuk ya da sıcak hava üflüyorlar. Böylece içerideki hava daima serin kalmış oluyor. Duvara monte edildikleri için evde yer kaplamıyorlar ve hem soğutma hem de ısıtma işlemini rahatlıkla yapıyorlar.</p>
+              </div>
 
               <div class="space-20"></div>
 
-              <p>
-                <b>Salon Tipi Klima</b>
-              </p>
-              <p>Salon tipi klimalar da iç ve dış ünite olmak üzere iki farklı bölümden oluşuyor ve klimanın iç ünitesi ayakta duruyor. Genellikle ofisler ya da bankalar gibi evlerden daha geniş alanlarda kullanılan salon tipi klimaların montajı için duvar ya da pencere gerekmediğinden bu tip klimalar, mekân içerisinde istenilen yere sabitlenebiliyor.</p>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img src="/src/assets/img/categorie/salontipi.png" style="margin-bottom: 30px" alt />
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-6">
+                <p>
+                  <b>Salon Tipi Klima</b>
+                </p>
+                <p>Salon tipi klimalar da iç ve dış ünite olmak üzere iki farklı bölümden oluşuyor ve klimanın iç ünitesi ayakta duruyor. Genellikle ofisler ya da bankalar gibi evlerden daha geniş alanlarda kullanılan salon tipi klimaların montajı için duvar ya da pencere gerekmediğinden bu tip klimalar, mekân içerisinde istenilen yere sabitlenebiliyor.</p>
+              </div>
 
               <div class="space-20"></div>
 
-              <p>
-                <b>Mobil-Portatif Klima</b>
-              </p>
-              <p>Mobil klimalar daha düşük metrekareye sahip alanlarda kullanılabiliyor. Klimasını evin farklı alanlarında kullanmak isteyenler, kiracı olduğu için yaşadığı evde sabit klima istemeyenler ya da yaz aylarında yazlığa giden kullanıcılar için mobil-portatif klimalar oldukça uygun bir seçenek. Bebek ve çocuk odasının ekstra ısıtılmasına ihtiyaç duyulduğunda da kullanılabilen ve seyyar klima olarak da bilinen portatif klimalar, dış ünite montajının yapılamayacağı binalarda yaşayanlar için de oldukça kullanışlı.</p>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img src="/src/assets/img/categorie/kasettipi.png" style="margin-bottom: 30px" alt />
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-6">
+                <p>
+                  <b>Kasettipi Tipi Klima</b>
+                </p>
+                <p>Tavana montajı olabilen en yaygın kaset tipi klimalardır. Ofislerde, mağazalarda asma tavana gizleyerek kullanımda yerden tasarruf etmeyi sağlayan en uygun ünitelerdir. Eşsiz avantajına sahip olan kaset tipi klimalar dört farklı yönde serin veya sıcak hava üfler. Tek merkezi olarak tavana monte edilen klima, tüm odaya dengeli soğutma sağlayabilir veya daha büyük alanlar için birden fazla ünite kullanılabilir. Kaset tipi klimalar 12000 BTU ve 48000 BTU aralığında kapasiteye sahiptirler.</p>
+              </div>
+
+              <div class="space-20"></div>
+
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img src="/src/assets/img/categorie/kanaltipi.png" style="margin-bottom: 30px" alt />
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-6">
+                <p>
+                  <b>Kanallı Tip Klima</b>
+                </p>
+                <p>Kanallı tip klimaların kullanım alanları oldukça yaygındır. Genel olarak büyük alanlarda tercih edilseler de konforun ön planda olduğu alanlarda da çok fazla tercih edilmektedirler. İş yerleri, ofisler, hastaneler, bankalar, okullar, mağazalar kullanım alanlarına örnek olarak gösterilebilir. Ayrıca bu kullanım alanlarının dışında da yine birçok yerde tercih edildiği görülmektedir. Kanallı tip klimadekorasyon açısından istenileni vermeyi başardığı için son zamanlarda kimi evlerde de tercih edilmektedir.</p>
+              </div>
+
+              <div class="space-20"></div>
+
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img src="/src/assets/img/categorie/multi.png" style="margin-bottom: 30px" alt />
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-6">
+                <p>
+                  <b>Multi Tipi Klima</b>
+                </p>
+                <p>
+                  Multi sistemler bina dışında yer alan tek bir dış üniteye bağlı ve bina içinde farklı alanlara yerleştirilmiş birkaç iç ünite ile çalışıyor. İç ünitede göre salon tipi, duvar tipi veya kaset tipi klima modelleri kullanılabiliyor. Tek dış ünitenin yeterli olmasından dolayı enerji tüketimini azalttığı için oldukça avantajlı bir seçim olan sistemin çalışma prensibine de değinelim. Multi sistemde dış üniteden alınan ısı bina içinden geçen borular aracılığıyla iç ünitelere taşınıyor. Yani oldukça kolay ve güvenli bir sistem!
+                  Üstelik hem ısıtma hem de soğutma amaçlı kullanılabilmesinin yanında tek merkezden veya ayrı ayrı alanlardan bağımsız şekilde kontrol edilebilmesi de oldukça pratik bir kullanım sağlıyor.
+                </p>
+              </div>
+
+              <div class="space-20"></div>
             </div>
           </div>
         </div>
