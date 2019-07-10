@@ -446,7 +446,7 @@
               </p>
               <p>İnternet bağlantısı olan telefon, tablet gibi cihazlarınız sayesinde kullanabileceğiniz uzaktan kontrol Wi-Fi teknolojisi sayesinde, klimanızın olduğu alanda olmasanız bile onu çalıştırmanız mümkün hale geliyor. Bu fonksiyonla evinize ya da iş yerinize gitmeden alanı soğutabiliyor ya da ısıtabiliyorsunuz. Normal şartlar altında odaya geldiğinizde açtığınız klima, ideal sıcaklığı yakalayabilmek için yüksek enerji harcarken uzaktan kontrol Wi-Fi (Connect) özelliği sayesinde düşük seviyede çalışmaya başlayarak hem konforunuzu sağlıyor hem de enerji tasarrufu yapıyor.</p>
 
-              <div class="space-20"></div>
+              <div class="space-20" />
 
               <p>
                 <b>Kaliteli Uykunun ve Enerji Tasarrufunun Sırrı: Uyku Modu ve Otomatik Açma/Kapama</b>
@@ -457,6 +457,8 @@
         </div>
 
         <hr />
+
+        <div class="space-40"></div>
       </div>
     </div>
   </div>
