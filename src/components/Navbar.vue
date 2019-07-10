@@ -54,7 +54,7 @@
           </router-link>
 
           <li v-if="$store.getters.getAuth === true" class="active">
-            <a href @click="logout">Çıkış</a>
+            <a href="#!" @click="logout">Çıkış</a>
           </li>
         </ul>
       </div>
@@ -68,6 +68,7 @@
 export default {
   methods: {
     logout() {
+      console.info(1);
       this.$store.dispatch("logout");
       this.$router.push({ name: "home" });
     }

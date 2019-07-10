@@ -2,7 +2,6 @@
   <div class="container">
     <div class="col-md-12">
       <div class="space-30" />
-      <h1>İsim</h1>
       <hr />
       <p>
         <b>İsim:</b>
