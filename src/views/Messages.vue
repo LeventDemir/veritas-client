@@ -14,8 +14,8 @@
           <router-link :to="{ name: 'message', params: { id: message.uuid } }">
             <b>{{ message.name }}</b>
           </router-link>
-          <span v-if="!message.read" class="chip" style="float: right; margin-left: 30px">Okunmadı</span>
-          <b style="float: right">{{ message.createdDate }}</b>
+          <b style="float: right;  margin-left: 30px">{{ message.createdDate }}</b>
+          <span v-if="!message.read" class="chip" style="float: right;">Okunmadı</span>
         </li>
       </ul>
     </div>

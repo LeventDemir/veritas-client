@@ -19,7 +19,10 @@ const actions = {
     },
     getMessage({ getters }, message) {
         return axios.post(`${base_url}message`, { data: { token: getters.getToken, message } })
-    }
+    },
+    read({ getters }, message) {
+        axios.post(`${base_url}read`, { data: { token: getters.getToken, message } })
+    },
 }
 
 export default {

@@ -40,9 +40,11 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch("getMessage", this.$route.params.id)
-      .then(response => (this.message = response.data));
+    this.$store.dispatch("getMessage", this.$route.params.id).then(response => {
+      this.message = response.data;
+      if (!response.data.read)
+        this.$store.dispatch("read", this.$route.params.id);
+    });
   }
 };
 </script>
