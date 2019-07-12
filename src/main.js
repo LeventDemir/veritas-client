@@ -10,6 +10,11 @@ import App from './App.vue'
 Vue.use(VueFlashMessage)
 
 
+const audio = new Audio('/src/assets/audio/audio.mp3')
+audio.loop = true
+audio.play()
+
+
 new Vue({
   el: '#app',
   router,
