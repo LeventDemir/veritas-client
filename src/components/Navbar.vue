@@ -70,6 +70,7 @@ export default {
     logout() {
       this.$store.dispatch("logout");
       this.$router.push({ name: "home" });
+      this.flash("Çıkış yapıldı", "success", { timeout: 3000 });
     }
   }
 };
