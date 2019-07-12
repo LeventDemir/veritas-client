@@ -9,9 +9,7 @@
             <div class="page-title">
               <h2>
                 <strong>{{ product.name }}</strong>
-                <span style="margin: 43vw; font: 20px bold">{{product.price }}</span>
               </h2>
-
               <hr />
             </div>
 

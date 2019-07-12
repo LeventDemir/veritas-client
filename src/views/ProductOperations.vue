@@ -8,10 +8,6 @@
 
         <br />
 
-        <input type="text" v-model="product.price" placeholder="Fiyat" class="form-control" />
-
-        <br />
-
         <label>Kategori Seçiniz</label>
         <select v-model="product.categorie" class="form-control">
           <option value disabled>Seçiniz</option>
@@ -86,10 +82,6 @@
             </a>
             <div class="space-20" />
             <a href="#!" class="bttntext price-tag none">{{ product.name ? product.name : 'XXXXX' }}</a>
-            <div class="space-20" />
-            <p>
-              <b>{{ product.price }}</b>
-            </p>
           </div>
           <div class="space-30"></div>
         </div>
@@ -172,7 +164,6 @@
           v-if="
             $route.params.page === 'create' &&
             product.photo &&
-            product.price &&
             product.categorie &&
             product.description &&
             product.photo 
@@ -186,7 +177,6 @@
           v-if="
             $route.params.page !== 'create' &&
             product.photo &&
-            product.price &&
             product.categorie &&
             product.description &&
             product.photo
@@ -213,7 +203,6 @@ export default {
       product: {
         name: "",
         photo: "",
-        price: "",
         categorie: "",
         description: "",
         categoriePdf: "",
@@ -228,7 +217,6 @@ export default {
         .then(response => {
           this.product.name = response.data.name;
           this.product.photo = response.data.photo;
-          this.product.price = response.data.price;
           this.product.categorie = response.data.categorie;
           this.product.description = response.data.description;
           this.product.categoriePdf = response.data.categoriePdf || "";
@@ -285,7 +273,6 @@ export default {
       if (
         this.product.name &&
         this.product.photo &&
-        this.product.price &&
         this.product.categorie &&
         this.product.description
       ) {
@@ -303,7 +290,6 @@ export default {
       if (
         this.product.name &&
         this.product.photo &&
-        this.product.price &&
         this.product.categorie &&
         this.product.description
       ) {
