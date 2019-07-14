@@ -1,7 +1,31 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-12">
+      <div v-if="uploading" class="col-xs-8 col-xs-offset-2">
+        <div class="space-100" />
+        <center>
+          <h3>{{ $store.getters.getUploaded === 100 ? "Yüklendi" : "Yükleniyor..." }}</h3>
+          <hr />
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              :style="[{ width: $store.getters.getUploaded + '%' }, { background: '#5cb85c' }]"
+            >
+              <b>{{ $store.getters.getUploaded + '%' }}</b>
+            </div>
+          </div>
+          <router-link
+            v-if="$store.getters.getUploaded === 100"
+            :to="{ name: 'dashboard' }"
+            tag="button"
+            @click.native="$store.commit('resetUploaded')"
+            class="btn btn-danger"
+          >Devam et</router-link>
+        </center>
+      </div>
+
+      <div v-else class="col-xs-12 col-sm-10 col-md-12">
         <br />
         <br />
         <input type="text" v-model="product.name" placeholder="İsim" class="form-control" />
@@ -200,6 +224,7 @@ export default {
   components: { VueEditor },
   data() {
     return {
+      uploading: false,
       product: {
         name: "",
         photo: "",
@@ -276,16 +301,16 @@ export default {
         this.product.categorie &&
         this.product.description
       ) {
+        this.uploading = true;
         this.$store.dispatch("createProduct", this.product).then(response => {
           if (response.data.msg)
             this.flash("Ürün Eklendi", "success", { timeout: 5000 });
           else this.flash("Ürün Eklenemedi", "error", { timeout: 5000 });
-
-          this.$router.push({ name: "dashboard" });
         });
       }
     },
     update() {
+      this.uploading = true;
       this.product.product = this.$route.params.page;
       if (
         this.product.name &&
@@ -297,8 +322,6 @@ export default {
           if (response.data.msg)
             this.flash("Ürün Güncellendi", "success", { timeout: 5000 });
           else this.flash("Ürün Güncellenemedi", "error", { timeout: 5000 });
-
-          this.$router.push({ name: "dashboard" });
         });
       }
     }

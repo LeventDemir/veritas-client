@@ -5,30 +5,41 @@ const base_url = 'http://127.0.0.1:3000/product/'
 
 
 const state = {
-    product: ''
+    product: '',
+    uploaded: 0
 }
 
 const getters = {
     getProduct(state) {
         return state.product
+    },
+    getUploaded(state) {
+        return state.uploaded
     }
 }
 
 const mutations = {
     setProduct(state, product) {
         state.product = product
+    },
+    resetUploaded(state) {
+        state.uploaded = 0
     }
 }
 
 const actions = {
-    createProduct({ getters }, data) {
+    createProduct({ state, getters }, data) {
         data.token = getters.getToken
 
-        return axios.post(`${base_url}createProduct`, { data })
+        return axios.post(`${base_url}createProduct`, { data }, {
+            onUploadProgress: e => state.uploaded = Math.round((e.loaded / e.total) * 100)
+        })
     },
     updateProduct({ getters }, data) {
         data.token = getters.getToken
-        return axios.post(`${base_url}updateProduct`, { data })
+        return axios.post(`${base_url}updateProduct`, { data }, {
+            onUploadProgress: e => state.uploaded = Math.round((e.loaded / e.total) * 100)
+        })
     },
     removeProduct({ getters }) {
         const data = { token: getters.getToken, product: getters.getProduct }
