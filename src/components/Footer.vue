@@ -17,17 +17,17 @@
           <div class="space-10"></div>
           <ul class="list-inline list-unstyled social-list">
             <li>
-              <a href>
+              <a href="https://www.instagram.com/veritasmuhendislik/" target="blank">
                 <i class="fab fa-instagram" style="background: #793939"></i>
               </a>
             </li>
             <li>
-              <a href>
+              <a href="#!">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li>
-              <a href>
+              <a href="#!">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
