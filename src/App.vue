@@ -38,7 +38,8 @@ export default {
 </script>
 
 <style>
-i:hover {
+i:hover,
+img:hover {
   cursor: pointer;
 }
 
