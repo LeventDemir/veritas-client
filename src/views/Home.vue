@@ -4,27 +4,12 @@
       <div class="carousel-inner">
         <div class="item">
           <img src="/src/assets/img/home/1.jpg" style="width: 100%;" />
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>GÜÇLÜ SERİNLİK</h1>
-            </div>
-          </div>
         </div>
         <div class="item">
           <img src="/src/assets/img/home/2.jpg" style="width: 100%;" />
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>GÖRKEMLİ SERİNLİK</h1>
-            </div>
-          </div>
         </div>
         <div class="item">
           <img src="/src/assets/img/home/3.jpg" style="width: 100%;" />
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>ORGANİZE SERİNLİK</h1>
-            </div>
-          </div>
         </div>
       </div>
 
