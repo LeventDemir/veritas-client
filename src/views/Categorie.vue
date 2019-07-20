@@ -3,7 +3,7 @@
     <NoFound v-if="error" />
 
     <div v-else>
-      <div class="space-30"></div>
+      <div class="space-50"></div>
       <div class="container">
         <MiniCards />
 

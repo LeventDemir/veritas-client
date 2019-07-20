@@ -100,7 +100,7 @@
           v-for="(image, imageIndex) in images"
           :key="imageIndex"
           @click="index = imageIndex"
-          :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '200px' }"
+          :style="{ backgroundImage: 'url(' + image + ')'}"
         />
       </div>
 
@@ -176,5 +176,7 @@ export default {
   background-position: center center;
   border: 1px solid #ebebeb;
   margin: 5px;
+  width: 22vw;
+  height: 15vw;
 }
 </style>

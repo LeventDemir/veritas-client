@@ -6,11 +6,11 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <img
             src="/src/assets/img/logo/veritas.jpg"
-            width="500"
+            width="450"
             class="img-responsive img-thmubnail"
           />
         </div>
-        <div class="col-xs-12 col-sm-10 col-md-6" style="margin-top: 70px">
+        <div class="col-xs-12 col-sm-10 col-md-6" style="margin-top: 50px">
           <div class="page-title">
             <h2>
               <b>Hakkımızda</b>
@@ -23,6 +23,6 @@
         </div>
       </div>
     </div>
-    <div class="space-30" />
+    <div class="space-30"></div>
   </section>
 </template>
