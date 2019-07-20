@@ -282,6 +282,7 @@
             <button
               v-else-if="modalData.type === 'delete'"
               type="button"
+              :disabled="users.length === 1 ? true : false"
               @click="removeUser"
               class="btn btn-danger"
             >Yöneticiyi sil</button>
@@ -395,13 +396,11 @@ export default {
     },
     removeUser() {
       this.$store.dispatch("removeUser", this.modalData.uuid).then(response => {
-        if (response.data.msg) {
+        if (response.data.success === true) {
           if (this.modalData.uuid === this.$store.getters.getUser.uuid) {
+            localStorage.removeItem("token");
             this.$store.commit("setAuth", false);
             this.$store.commit("setToken", "");
-
-            localStorage.removeItem("token");
-
             this.$store.commit("setUser", {
               uuid: "",
               photo: "",
