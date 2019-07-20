@@ -41,9 +41,10 @@ const actions = {
         return axios.post(`${base_url}login`, { data })
     },
     logout({ getters, commit }) {
-        axios.post(`${base_url}logout`, { token: getters.getToken }).then(response => {
+        axios.post(`${base_url}logout`, { token: getters.getToken }).then(() => {
             localStorage.removeItem("token")
             commit("setAuth", false)
+            commit("setUser", { uuid: '', photo: '', username: '' })
         })
     },
     getUser({ getters, commit }) {
