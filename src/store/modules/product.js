@@ -39,9 +39,7 @@ const actions = {
         })
     },
     removeProduct({ getters }) {
-        const data = { token: getters.getToken, product: getters.getProduct }
-
-        return axios.post(`${base_url}removeProduct`, { data })
+        return axios.post(`${base_url}remove`, { data: { token: getters.getToken, product: getters.getProduct } })
     },
     getProducts() {
         return axios.get(`${base_url}getProducts`)

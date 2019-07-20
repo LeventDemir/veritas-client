@@ -427,11 +427,11 @@ export default {
     },
     removeProduct() {
       this.$store.dispatch("removeProduct").then(response => {
-        if (response.data.msg) {
+        if (response.data.success) {
           this.getProducts();
-          this.$refs.close.click();
           this.flash("Ürün Silindi", "success", { timeout: 3000 });
         } else this.flash("Ürün Silinemedi", "error", { timeout: 3000 });
+        this.$refs.close.click();
       });
     }
   }
