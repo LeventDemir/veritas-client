@@ -358,12 +358,17 @@ export default {
           this.modalData.username.length < 17
         ) {
           this.$store.dispatch("createUser", this.modalData).then(response => {
-            if (response.data.el) this.error = "taken";
+            if (response.data.success === false) {
+              this.flash("İşlem gerçekleştirilemedi", "error", {
+                timeout: 3000
+              });
+              this.$refs.close.click();
+            } else if (response.data.msg) this.error = "taken";
             else {
               this.error = false;
               this.getUsers();
+              this.flash("Yönetici Eklendi", "success", { timeout: 3000 });
               this.$refs.close.click();
-              this.flash("Yönetici Eklendi", "success", { timeout: 5000 });
             }
           });
         } else this.error = "password";
@@ -380,7 +385,7 @@ export default {
             this.error = false;
             this.getUsers();
             this.$refs.close.click();
-            this.flash("Yönetici Güncellendi", "success", { timeout: 5000 });
+            this.flash("Yönetici Güncellendi", "success", { timeout: 3000 });
           } else this.error = true;
         });
       } else this.error = "length";
@@ -405,8 +410,8 @@ export default {
           this.error = false;
           this.getUsers();
           this.$refs.close.click();
-          this.flash("Yönetici Silindi", "success", { timeout: 5000 });
-        } else this.flash("Yönetici Silinemedi", "error", { timeout: 5000 });
+          this.flash("Yönetici Silindi", "success", { timeout: 3000 });
+        } else this.flash("Yönetici Silinemedi", "error", { timeout: 3000 });
       });
     },
     getProducts() {
@@ -423,8 +428,8 @@ export default {
         if (response.data.msg) {
           this.getProducts();
           this.$refs.close.click();
-          this.flash("Ürün Silindi", "success", { timeout: 5000 });
-        } else this.flash("Ürün Silinemedi", "error", { timeout: 5000 });
+          this.flash("Ürün Silindi", "success", { timeout: 3000 });
+        } else this.flash("Ürün Silinemedi", "error", { timeout: 3000 });
       });
     }
   }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const base_url = 'http://ec2-18-223-97-217.us-east-2.compute.amazonaws.com/message/'
+const base_url = 'http://127.0.0.1:3000/message/'
 
 
 const state = {}

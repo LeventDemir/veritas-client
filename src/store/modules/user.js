@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const base_url = 'http://ec2-18-223-97-217.us-east-2.compute.amazonaws.com/user/'
+const base_url = 'http://127.0.0.1:3000/user/'
 
 
 const state = {
@@ -25,6 +25,9 @@ const mutations = {
 }
 
 const actions = {
+    createUser({ getters }, data) {
+        return axios.post(`${base_url}create`, { data: { ...data, token: getters.getToken } })
+    },
     login({ }, data) {
         return axios.post(`${base_url}login`, { data })
     },
@@ -55,11 +58,6 @@ const actions = {
             }
 
         })
-    },
-    createUser({ getters }, data) {
-        data.token = getters.getToken
-
-        return axios.post(`${base_url}createUser`, { data })
     },
     removeUser({ getters }, user) {
         return axios.post(`${base_url}removeUser`, { data: { user, token: getters.getToken } })
