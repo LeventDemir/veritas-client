@@ -42,13 +42,13 @@ const actions = {
         return axios.post(`${base_url}remove`, { data: { token: getters.getToken, product: getters.getProduct } })
     },
     getProducts() {
-        return axios.get(`${base_url}getProducts`)
+        return axios.get(`${base_url}products`)
     },
     getProductsByCategorie({ }, categorie) {
-        return axios.get(`${base_url}getProductsByCategorie`, { params: { categorie } })
+        return axios.get(`${base_url}categorie`, { params: { categorie } })
     },
     getProduct({ }, product) {
-        return axios.get(`${base_url}getProduct`, { params: { product } })
+        return axios.get(`${base_url}product`, { params: { product } })
     }
 }
 

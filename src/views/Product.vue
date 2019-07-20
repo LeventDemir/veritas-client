@@ -83,7 +83,7 @@ export default {
   },
   created() {
     this.$store.dispatch("getProduct", this.$route.params.id).then(response => {
-      if (response.data.el === false) this.error = true;
+      if (response.data.success === false) this.error = true;
       else this.product = response.data;
     });
   }
