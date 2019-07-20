@@ -58,7 +58,7 @@ export default {
     login() {
       if (this.user.username.length > 0 && this.user.password.length) {
         this.$store.dispatch("login", this.user).then(response => {
-          if (response.data.el === false)
+          if (response.data.success === false)
             this.flash("Kullanıcı adı yada parolanız yanlış !", "error");
           else {
             this.$store.commit("setAuth", true);
