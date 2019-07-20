@@ -4,11 +4,8 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-4" style="color: #FFFFFF;">
-          <img
-            src="/src/assets/img/logo/logo.png"
-            style="filter: brightness(0) invert(1); margin-top: -50px"
-          />
-          <div class="space-10"></div>Veritas Muhendislik Türkiye Distribütörü
+          <img src="/src/assets/img/logo/logo.png" />
+          <div class="space-30"></div>Veritas Muhendislik Yetkili Merci
           <div class="space-10"></div>Konacık Mh. Atatürk Blv. No: 200 Bodrum - Muğla / TURKEY
           <div class="clearfix"></div>
           <hr />
@@ -94,3 +91,10 @@
     <div class="space-100"></div>
   </footer>
 </template>
+
+
+<style scoped>
+* {
+  font-weight: bold;
+}
+</style>
