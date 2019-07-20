@@ -295,35 +295,23 @@ export default {
       this.product.featuresPdf = "";
     },
     create() {
-      if (
-        this.product.name &&
-        this.product.photo &&
-        this.product.categorie &&
-        this.product.description
-      ) {
-        this.uploading = true;
-        this.$store.dispatch("createProduct", this.product).then(response => {
-          if (response.data.msg)
-            this.flash("Ürün Eklendi", "success", { timeout: 5000 });
-          else this.flash("Ürün Eklenemedi", "error", { timeout: 5000 });
-        });
-      }
+      this.uploading = true;
+
+      this.$store.dispatch("createProduct", this.product).then(response => {
+        if (response.data.success === true)
+          this.flash("Ürün Eklendi", "success", { timeout: 5000 });
+        else this.flash("Ürün Eklenemedi", "error", { timeout: 5000 });
+      });
     },
     update() {
       this.uploading = true;
       this.product.product = this.$route.params.page;
-      if (
-        this.product.name &&
-        this.product.photo &&
-        this.product.categorie &&
-        this.product.description
-      ) {
-        this.$store.dispatch("updateProduct", this.product).then(response => {
-          if (response.data.msg)
-            this.flash("Ürün Güncellendi", "success", { timeout: 5000 });
-          else this.flash("Ürün Güncellenemedi", "error", { timeout: 5000 });
-        });
-      }
+
+      this.$store.dispatch("updateProduct", this.product).then(response => {
+        if (response.data.msg)
+          this.flash("Ürün Güncellendi", "success", { timeout: 5000 });
+        else this.flash("Ürün Güncellenemedi", "error", { timeout: 5000 });
+      });
     }
   }
 };

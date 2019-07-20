@@ -29,9 +29,7 @@ const mutations = {
 
 const actions = {
     createProduct({ state, getters }, data) {
-        data.token = getters.getToken
-
-        return axios.post(`${base_url}createProduct`, { data }, {
+        return axios.post(`${base_url}create`, { data: { ...data, token: getters.getToken } }, {
             onUploadProgress: e => state.uploaded = Math.round((e.loaded / e.total) * 100)
         })
     },
