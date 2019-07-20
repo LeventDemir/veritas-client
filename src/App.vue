@@ -17,6 +17,7 @@
       $route.name === 'categorie' || 
       $route.name === 'contact' ||
       $route.name === 'rights' ||
+      $route.name === 'questions' ||
       $route.name === 'login'"
     />
   </div>

@@ -16,6 +16,7 @@ import NoFound from '../components/NoFound'
 import Rights from '../views/Rights'
 import Messages from '../views/Messages'
 import Message from '../views/Message'
+import Questions from '../views/Questions'
 
 
 Vue.use(VueRouter);
@@ -88,11 +89,6 @@ const routes = [
         name: "rights",
     },
     {
-        path: "*",
-        component: NoFound,
-        name: "noFound",
-    },
-    {
         path: "/messages",
         component: Messages,
         name: "messages",
@@ -115,6 +111,15 @@ const routes = [
                 else next({ name: 'login' })
             });
         }
+    },
+    {
+        path: "/questions",
+        component: Questions,
+        name: "questions",
+    }, {
+        path: "*",
+        component: NoFound,
+        name: "noFound",
     },
 ];
 

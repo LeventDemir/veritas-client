@@ -60,6 +60,9 @@
               <router-link :to="{ name: 'rights' }" tag="li">
                 <a href>TÜKETİCİ HAKLARI – CAYMA – İPTAL İADE KOŞULLARI</a>
               </router-link>
+              <router-link :to="{ name: 'questions' }" tag="li">
+                <a href>Sıkça sorulan sorular</a>
+              </router-link>
             </ul>
           </div>
           <div class="space-30"></div>
