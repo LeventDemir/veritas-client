@@ -381,11 +381,14 @@ export default {
       ) {
         this.modalData.user = this.modalData.uuid;
         this.$store.dispatch("updateUser", this.modalData).then(response => {
-          if (response === true) {
+          if (response.success === true) {
             this.error = false;
             this.getUsers();
             this.$refs.close.click();
             this.flash("Yönetici Güncellendi", "success", { timeout: 3000 });
+          } else if (response.success === false) {
+            this.$refs.close.click();
+            this.flash("Yönetici Güncellenemedi", "error", { timeout: 3000 });
           } else this.error = true;
         });
       } else this.error = "length";

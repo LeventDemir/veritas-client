@@ -28,6 +28,15 @@ const actions = {
     createUser({ getters }, data) {
         return axios.post(`${base_url}create`, { data: { ...data, token: getters.getToken } })
     },
+    updateUser({ getters, commit }, data) {
+        return axios.post(`${base_url}update`, { data: { ...data, token: getters.getToken } }).then(response => {
+            if (response.data.success)
+                if (data.user === getters.getUser.uuid)
+                    commit("setUser", { ...data, uuid: getters.getUser.uuid })
+
+            return response.data
+        })
+    },
     login({ }, data) {
         return axios.post(`${base_url}login`, { data })
     },
@@ -42,22 +51,6 @@ const actions = {
     },
     getUsers({ getters }) {
         return axios.post(`${base_url}getUsers`, { token: getters.getToken })
-    },
-    updateUser({ getters, commit }, data) {
-        data.token = getters.getToken
-
-        return axios.post(`${base_url}updateUserData`, { data }).then(response => {
-            if (response.data.msg) {
-                if (data.user === getters.getUser.uuid) {
-                    data.uuid = getters.getUser.uuid
-                    commit("setUser", data)
-                }
-                return true
-            } else {
-                return response.data
-            }
-
-        })
     },
     removeUser({ getters }, user) {
         return axios.post(`${base_url}removeUser`, { data: { user, token: getters.getToken } })
