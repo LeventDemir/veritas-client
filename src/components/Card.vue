@@ -1,7 +1,7 @@
 <template>
   <div
-    data-wow-delay="0.2s"
     class="col-xs-12 col-sm-4 text-center wow fadeInRight"
+    data-wow-delay="0.2s"
     style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;"
   >
     <div class="single-price">
@@ -11,13 +11,15 @@
           <img :src="data.photo" class="img-responsive img-thmubnail" />
         </center>
       </router-link>
+      <div class="space-20"></div>
       <router-link
         :to="{ name: 'product', params: { id: data.uuid } }"
         tag="a"
         class="bttntext price-tag none"
       >{{ data.name }}</router-link>
-      <div class="space-30" />
-      <p v-if="$route.name === 'dashboard'">
+
+      <div v-if="$route.name === 'dashboard'">
+        <div class="space-30"></div>
         <router-link
           :to="{ name: 'productOperations', params: { page: data.uuid } }"
           tag="i"
@@ -31,7 +33,7 @@
           @click="$store.commit('setProduct', data.uuid)"
           class="fa fa-trash text-danger"
         ></i>
-      </p>
+      </div>
     </div>
     <div class="space-30"></div>
   </div>
