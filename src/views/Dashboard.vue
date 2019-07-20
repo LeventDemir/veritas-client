@@ -16,7 +16,7 @@
           v-if="admin"
           data-toggle="modal"
           data-target="#userModal"
-          @click="setModalData('create', 'https://musichubs.herokuapp.com/public/base?image=avatar', '', '')"
+          @click="setModalData('create', 'http://localhost:3000/static/base/avatar.png', '', '')"
           class="btn btn-danger"
           style="float: right"
         >Yönetici Ekle</button>
