@@ -34,8 +34,7 @@ const actions = {
         })
     },
     updateProduct({ getters }, data) {
-        data.token = getters.getToken
-        return axios.post(`${base_url}updateProduct`, { data }, {
+        return axios.post(`${base_url}update`, { data: { ...data, token: getters.getToken } }, {
             onUploadProgress: e => state.uploaded = Math.round((e.loaded / e.total) * 100)
         })
     },

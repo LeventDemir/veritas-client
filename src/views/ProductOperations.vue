@@ -308,7 +308,7 @@ export default {
       this.product.product = this.$route.params.page;
 
       this.$store.dispatch("updateProduct", this.product).then(response => {
-        if (response.data.msg)
+        if (response.data.success === true)
           this.flash("Ürün Güncellendi", "success", { timeout: 5000 });
         else this.flash("Ürün Güncellenemedi", "error", { timeout: 5000 });
       });
