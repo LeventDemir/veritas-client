@@ -16,7 +16,7 @@
           v-if="admin"
           data-toggle="modal"
           data-target="#userModal"
-          @click="setModalData('create', 'http://localhost:3000/static/base/avatar.png', '', '')"
+          @click="setModalData('create', 'http://ec2-52-14-172-108.us-east-2.compute.amazonaws.com/static/base/avatar.png', '', '')"
           class="btn btn-danger"
           style="float: right"
         >Yönetici Ekle</button>

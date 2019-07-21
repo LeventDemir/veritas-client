@@ -15,7 +15,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         auth: null,
-        base_url: 'http://127.0.0.1:3000/',
+        base_url: 'http://ec2-52-14-172-108.us-east-2.compute.amazonaws.com/',
         token: localStorage.getItem("token") || "",
     },
     getters,
